@@ -1,5 +1,4 @@
 import React from 'react';
-
 function Header() {
   return (
     <header className="header">
@@ -65,9 +64,6 @@ function Header() {
               </li>
               <li className="has-submenu">
                 <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
               </li>
               <li className="login-link">
                 <a href="/login">Login / Signup</a>

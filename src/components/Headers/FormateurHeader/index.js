@@ -3,7 +3,15 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
+import {useSelector, useDispatch} from 'react-redux';
+import {signout} from '../../../actions';
+
 function FormateurHeader() {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(signout());
+  };
   return (
     <div>
       <div className="header">
@@ -242,7 +250,7 @@ function FormateurHeader() {
                 />
                 {'  '} My Profile
               </a>
-              <a className="dropdown-item" href="/login">
+              <a className="dropdown-item" href="/login"  onClick={logout}>
                 <FaIcons.FaPowerOff
                   style={{
                     fontSize: '14px',

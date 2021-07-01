@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
+import {useSelector, useDispatch} from 'react-redux';
+import {signout} from '../../../actions';
+
 function CandidatSidebar() {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(signout());
+  };
   return (
     <div>
     
@@ -68,14 +76,10 @@ function CandidatSidebar() {
           </li>
           <li   >
             <a href="/login" style={{
-                  BackgroundColor: 'red'
-                }}>
-            <FaIcons.FaPowerOff style={{
-                  BackgroundColor: 'Tomato'
-                }}/>
-              <span style={{
-                  BackgroundColor: 'Tomato'
-                }} >Logout</span>
+                  color: '#e72d46'
+                }} onClick={logout} >
+            <FaIcons.FaPowerOff/>
+              <span>Logout</span>
             </a>
           </li>
         </ul>

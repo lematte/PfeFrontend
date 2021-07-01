@@ -3,9 +3,17 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
+
+import {useSelector, useDispatch} from 'react-redux';
+import {signout} from '../../../actions';
+
 function AdminSidebar() {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(signout());
+  };
   return (
-    
     <div className="sidebar" id="sidebar">
     <div className="sidebar-inner slimscroll">
       <div id="sidebar-menu" className="sidebar-menu">
@@ -66,7 +74,7 @@ function AdminSidebar() {
             </a>
           </li>
           <li   >
-            <a href="/login" style={{
+            <a href="/login" onClick={logout} style={{
                   BackgroundColor: 'red'
                 }}>
             <FaIcons.FaPowerOff style={{

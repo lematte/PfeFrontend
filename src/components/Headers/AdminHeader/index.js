@@ -1,7 +1,15 @@
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 
+import {useSelector, useDispatch} from 'react-redux';
+import {signout} from '../../../actions';
+
 const AdminHeader = () => {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(signout());
+  };
   return (
     <div className="header">
       {/* Logo */}
@@ -234,7 +242,7 @@ const AdminHeader = () => {
                 }} />
               {'  '} My Profile
             </a>
-            <a className="dropdown-item" href="/login">
+            <a className="dropdown-item" href="/login"  onClick={logout}>
               <FaIcons.FaPowerOff  style={{
                   fontSize: '14px',
                   color: '#0c0c0c',
