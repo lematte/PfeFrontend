@@ -1,6 +1,7 @@
-import {formationConstants} from '../actions/constants';
+import {formationConstants, formationgetByIdCentreConstants,DeleteformationConstants} from '../actions/constants';
 const initialState = {
   Formation: [],
+  formations : [],
   message: null,
   error: null,
 };
@@ -20,7 +21,31 @@ export default (state = initialState, action) => {
         error: action.payload.error,
       };
       break;
-
+      case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_SUCCESS:
+        state = {
+          ...state,
+          formations: action.payload.formations,
+          message: ' ',
+        };
+        break;
+        case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_FAILURE:
+        state = {
+          ...state,
+          error: action.payload.error,
+        };
+        break;
+        case DeleteformationConstants.DELETE_FORMATION_SUCCESS:
+          state = {
+            ...state,
+            message: action.payload.message,
+          };
+          break;
+          case DeleteformationConstants.DELETE_FORMATION_FAILURE:
+        state = {
+          ...state,
+          error: action.payload.error,
+        };
+        break;
     default:
       console.log('default');
   }

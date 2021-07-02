@@ -24,7 +24,7 @@ function Login() {
     } else if (AuthUser.role === 'formateur') {
       return <Redirect to="/formateur" />;
     } else if (AuthUser.role === 'centre_formation') {
-      return <Redirect to="/centre_formation/dashboard" />;
+      return <Redirect to="/centre_formations/dashboard" />;
     }
   }
 
@@ -44,7 +44,7 @@ function Login() {
   } else if (auth.authenticate && auth.user.role === 'formateur') {
     return <Redirect to="/formateur/dashboard" />;
   } else if (auth.authenticate && auth.user.role === 'centre_formation') {
-    return <Redirect to="/centre_formation/dashboard" />;
+    return <Redirect to="/centre_formations/dashboard" />;
   }
 
   return (

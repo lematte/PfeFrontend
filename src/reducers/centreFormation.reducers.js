@@ -1,6 +1,7 @@
-import {centre_formationConstants} from '../actions/constants';
+import {centre_formationConstants , GETBYIDUSERCENTREConstants} from '../actions/constants';
 const initialState = {
   centre_formation: [],
+  centre: [],
   user: [],
   message: null,
   error: null,
@@ -22,7 +23,18 @@ export default (state = initialState, action) => {
         error: action.payload.error,
       };
       break;
-
+      case GETBYIDUSERCENTREConstants.GETBYIDUSER_CENTRE_SUCCESS:
+      state = {
+        ...state,
+        centre: action.payload.centre
+      };
+      break;
+      case GETBYIDUSERCENTREConstants.GETBYIDUSER_CENTRE_FAILURE:
+        state = {
+          ...state,
+          error: action.payload.error
+        };
+        break;
     default:
       console.log('default');
   }

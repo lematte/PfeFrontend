@@ -51,7 +51,7 @@ function Index() {
       password,
       pays,
     };
-    console.log(candidat);
+    //console.log(candidat);
     // console.log(getuser._id);
     dispatch(updateCandidat(AuthCandidat._id, candidat));
     dispatch(getCandidatByIdUser(AuthCandidat.User._id));

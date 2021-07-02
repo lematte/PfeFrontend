@@ -1,6 +1,6 @@
 import {authConstants} from './constants';
 import axios from '../helpers';
-import {getCandidatByIdUser} from './index';
+import {getCandidatByIdUser,getCentreByIdUser} from './index';
 
 export const login = (user) => {
   console.log(user);
@@ -14,8 +14,11 @@ export const login = (user) => {
         const {token, user} = res.data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
+        
         if (user.role === 'candidat') {
           dispatch(getCandidatByIdUser(user._id));
+        }else if (user.role === 'centre_formation') {
+          dispatch(getCentreByIdUser(user._id));
         }
         dispatch({
           type: authConstants.LOGIN_SUCCESS,

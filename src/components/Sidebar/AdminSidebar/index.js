@@ -40,10 +40,10 @@ function AdminSidebar() {
               <span>Subscriptions</span>
             </a>
           </li>
-          <li className="submenu">
-            <a href="/admin/">
+          <li>
+            <a href="/admin/formations">
             <FaIcons.FaBook/>
-              <span> Courses</span> <span className="menu-arrow" />
+              <span> Courses</span> 
             </a>
           </li>
           <li className="submenu">

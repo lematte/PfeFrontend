@@ -100,7 +100,7 @@ function Register() {
                           <label class="form-control-label">Nom centre</label>
                           <input
                             id="nom"
-                            type="email"
+                            type="text"
                             class="form-control"
                             value={Nom_centre}
                             onChange={(e) => {

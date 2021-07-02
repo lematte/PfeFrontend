@@ -9,6 +9,9 @@ import Formations from './containers/formations/index'
 import DashboardAdmin from "./containers/users/admin";
 import SettingSite from "./containers/users/admin/settingSite";
 import Profile from './containers/users/admin/profile/index'
+import Allformations from './containers/users/admin/formations/index'
+import CentreFormation from './containers/users/CentreFormation/index'
+import FormationCentreFormation from './containers/users/CentreFormation/FormationCentreFormation/index'
 import Dashboarcandidat from './containers/users/candidat/index'
 import CandidatProfile from './containers/users/candidat/CandidatProfile/index'
 import Subscriptions from "./containers/users/candidat/subscriptions";
@@ -34,6 +37,11 @@ function App() {
           <Route path="/admin/dashboard" exact component={DashboardAdmin} />
           <Route path="/admin/setting" exact component={SettingSite} />
           <Route path="/admin/Profile" exact component={Profile} />
+          <Route path="/admin/formations" exact component={Allformations} />
+
+
+          <Route path="/centre_formations/dashboard" exact component={CentreFormation} />
+          <Route path="/centre_formations/formations" exact component={FormationCentreFormation} />
 
           <Route path="/candidat/dashboard" exact component={Dashboarcandidat} />
           <Route path="/candidat/profile" exact component={CandidatProfile} />

@@ -6,7 +6,7 @@ import * as IoIcons from 'react-icons/io';
 import {useSelector, useDispatch} from 'react-redux';
 import {signout} from '../../../actions';
 
-function SidebarFormateur() {
+function CentreFormationSidebar() {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const logout = () => {
@@ -23,25 +23,25 @@ function SidebarFormateur() {
                 <span>Main</span>
               </li>
               <li className="active">
-                <a href="/formateur/dashboard">
+                <a href="/centre_formations/dashboard">
                   <FaIcons.FaHome />
                   <span>Dashboard</span>
                 </a>
               </li>
               <li>
-                <a href="/formateur/profile">
+                <a href="/centre_formations/profile">
                   <FaIcons.FaUserAlt />
                   <span>My Profile</span>
                 </a>
               </li>
               <li>
-                <a href="/formateur/contratformation">
+                <a href="/centre_formations/contratformation">
                   <FaIcons.FaHandshake />
                   <span>contrat formation</span>
                 </a>
               </li>
               <li>
-                <a href="/formateur/formations">
+                <a href="/centre_formations/formations">
                   <FaIcons.FaBook />
                   <span> Courses</span>
                 </a>
@@ -102,4 +102,4 @@ function SidebarFormateur() {
     </div>
   );
 }
-export default SidebarFormateur;
+export default CentreFormationSidebar;

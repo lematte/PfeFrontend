@@ -17,6 +17,5 @@ const rootReducer = combineReducers({
     Formateur : formateurReducer,
     getUser : get_UserReducers,
     candidat :candidatReducers
-
 })
 export default rootReducer;
