@@ -19,7 +19,6 @@ export default (state = initState, action) => {
 
     case registerConstants.REGISTER_SUCCESS:
      // localStorage.setItem('token', action.payload.token)
-
     state = {
         ...state,
         loading: false,

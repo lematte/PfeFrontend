@@ -5,7 +5,7 @@ import formateurReducer from './formateurs.reducers'
 import Centre_formationReducers from './centreFormation.reducers'
 import get_UserReducers from './User.reducers'
 import candidatReducers from './candidat.reducers'
-
+import salleReducers from './salle.reducers'
 import { combineReducers } from 'redux'
 
 
@@ -16,6 +16,7 @@ const rootReducer = combineReducers({
     centre_formation :Centre_formationReducers,
     Formateur : formateurReducer,
     getUser : get_UserReducers,
-    candidat :candidatReducers
+    candidat :candidatReducers,
+    salles : salleReducers
 })
 export default rootReducer;

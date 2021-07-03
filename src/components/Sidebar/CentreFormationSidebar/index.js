@@ -46,6 +46,12 @@ function CentreFormationSidebar() {
                   <span> Courses</span>
                 </a>
               </li>
+              <li>
+                <a href="/salles">
+                  <FaIcons.FaCube />
+                  <span> Rooms </span>
+                </a>
+              </li>
               <li className="submenu">
                 <a href="#">
                   <IoIcons.IoIosPaper />

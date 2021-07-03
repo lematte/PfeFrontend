@@ -55,7 +55,7 @@ function Index() {
     // console.log(getuser._id);
     dispatch(updateCandidat(AuthCandidat._id, candidat));
     dispatch(getCandidatByIdUser(AuthCandidat.User._id));
-    setShow(false);
+   // setShow(false);
   };
 
   if (localStorage.getItem('user') === undefined) {

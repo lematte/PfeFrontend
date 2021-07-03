@@ -12,6 +12,7 @@ import Profile from './containers/users/admin/profile/index'
 import Allformations from './containers/users/admin/formations/index'
 import CentreFormation from './containers/users/CentreFormation/index'
 import FormationCentreFormation from './containers/users/CentreFormation/FormationCentreFormation/index'
+import Salle from './containers/users/CentreFormation/Salle'
 import Dashboarcandidat from './containers/users/candidat/index'
 import CandidatProfile from './containers/users/candidat/CandidatProfile/index'
 import Subscriptions from "./containers/users/candidat/subscriptions";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           <Route path="/about" exact component={About} />
+          <Route path="/salles" exact component={Salle} />
 
           <Route path="/formateurs" exact component={Formateur} />
           <Route path="/centres" exact component={CentresList} />

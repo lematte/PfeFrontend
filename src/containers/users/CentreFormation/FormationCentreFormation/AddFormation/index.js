@@ -1,27 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
-import CentreFormationHeader from '../../../../components/Headers/CentreFormationHeader/index';
-import CentreFormationSidebar from '../../../../components/Sidebar/CentreFormationSidebar/index';
+import CentreFormationHeader from '../../../../../components/Headers/CentreFormationHeader/index';
+import CentreFormationSidebar from '../../../../../components/Sidebar/CentreFormationSidebar/index';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {
-  getByIdCentre,
-  getCentreByIdUser,
-  DeleteFormation,
-  ADDFormation,
-} from '../../../../actions/index';
-
-const types = [
-  {
-    value: 'presentielle',
-    label: 'présentielle',
-  },
-  {
-    value: 'en ligne',
-    label: 'en ligne',
-  },
-];
+import {getByIdCentre, getCentreByIdUser,DeleteFormation ,ADDFormation} from '../../../../../actions/index';
 
 function FormationCentreFormation() {
   const dispatch = useDispatch();
@@ -29,37 +13,28 @@ function FormationCentreFormation() {
   const AuthCenter = JSON.parse(localStorage.getItem('Centre'));
 
   useEffect(() => {
-    dispatch(getCentreByIdUser(AuthUser._id));
+    dispatch(getCentreByIdUser(AuthUser._id))
     dispatch(getByIdCentre(AuthCenter._id));
   }, []);
-  const cntr = useSelector((state) => state.centre_formation.centre);
+  const cntr = useSelector((state)=> state.centre_formation.centre)
 
   const formation = useSelector((state) => state.Formation.formations);
   const m = useSelector((state) => state.Formation.message);
-  console.log(formation);
-  console.log(cntr);
+  console.log(formation)
+  console.log(cntr)
 
-  let idf;
-  const IdDelete = (id) => {
-    idf = id;
-    // console.log(idf);
-  };
 
-  const Delete = () => {
-    // console.log(idf);
-    dispatch(DeleteFormation(idf));
-    dispatch(getByIdCentre(AuthCenter._id));
-  };
+ // let {id} = useParams 
 
-  /*
+
 const Delete = (idf) => {
   /* eslint no-restricted-globals:0 */
-  /* if ( confirm(`voulez-vous vraiment supprimer cette idee`) ){
+  if ( confirm(`voulez-vous vraiment supprimer cette idee`) ){
       dispatch(DeleteFormation(idf));
       dispatch(getByIdCentre(AuthCenter._id));
   }
+  
 }
-*/
   return (
     <div className="page-wrapper">
       <div className="content container-fluid">
@@ -70,11 +45,8 @@ const Delete = (idf) => {
           <div className="row">
             <div className="col-sm-9">
               <h3 className="page-title">Courses </h3>
-              <a
-                class="btn btn-sm  btn-outline-info "
-                data-toggle="modal"
-                href="#add"
-              >
+              <a class="btn btn-sm  btn-outline-info " data-toggle="modal"
+              href="#add">
                 <FaIcons.FaPlus /> add
               </a>
             </div>
@@ -139,15 +111,14 @@ const Delete = (idf) => {
                                   <a
                                     className="btn btn-sm bg-danger-light"
                                     data-toggle="modal"
-                                    href="#delete_modal"
-                                    onClick={() => IdDelete(f._id)}
+                                    onClick={ ()=> Delete(f._id)}
                                   >
-                                    <i className="far fa-trash-alt" /> Delete
+                                      <i className="far fa-trash-alt" /> Delete
                                   </a>
                                 </div>
                               </td>
                             </tr>
-                          ))
+                        ))
                         : 'Aucun Formation dans la base de donnes'}
                     </tbody>
                   </table>
@@ -156,90 +127,95 @@ const Delete = (idf) => {
             </div>
           </div>
         </div>
-        {/* ADD Modal */}
-        <div className="modal fade" id="add" aria-hidden="true" role="dialog">
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">ADD</h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <div className="row form-row">
-                    <div className="col-12 col-sm-6">
-                      <div className="form-group">
-                        <label>Title</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          defaultValue=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-6">
-                      <div className="form-group">
-                        <label>Durrée</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          defaultValue=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12">
-                      <div className="form-group">
-                        <label>Description</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          defaultValue=""
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-6">
-                      <div className="form-group">
-                        <label>Image</label>
-                        <input type="file" className="form-control" />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-6">
-                      <div className="form-group">
-                        <label>Prix</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          defaultValue="DT 0.00"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-12 col-sm-6">
-                      <div className="form-group">
-                        <label>Created Date</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          defaultValue="29th Oct 2019"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit" className="btn btn-primary btn-block">
-                    Save Changes
+          {/* ADD Modal */}
+          <div
+            className="modal fade"
+            id="add"
+            aria-hidden="true"
+            role="dialog"
+          >
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">ADD</h5>
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">×</span>
                   </button>
-                </form>
+                </div>
+                <div className="modal-body">
+                  <form>
+                    <div className="row form-row">
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>Title</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            defaultValue=""
+                          />
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>Durrée</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            defaultValue=""
+                          />
+                        </div>
+                      </div>
+                      <div className="col-12">
+                        <div className="form-group">
+                          <label>Description</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            defaultValue=""
+                          />
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>Image</label>
+                          <input type="file" className="form-control" />
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>Prix</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            defaultValue="DT 0.00"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-12 col-sm-6">
+                        <div className="form-group">
+                          <label>Created Date</label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            defaultValue="29th Oct 2019"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-block">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* /ADD Modal */}
+          {/* /ADD Modal */}
         <div>
           {/* Edit Details Modal */}
           <div
@@ -331,13 +307,12 @@ const Delete = (idf) => {
           </div>
           {/* /Edit Details Modal */}
           {/* Delete Modal */}
-
           <div
             className="modal fade"
-            id="delete_modal"
+            id='delete_modal'
             aria-hidden="true"
             role="dialog"
-            // onSubmit={Delete}
+           // onSubmit={Delete}
           >
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
@@ -345,12 +320,7 @@ const Delete = (idf) => {
                   <div className="form-content p-2">
                     <h4 className="modal-title">Delete</h4>
                     <p className="mb-4">Are you sure want to delete?</p>
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      onClick={Delete}
-                      data-dismiss="modal"
-                    >
+                    <button  type="submit"  className="btn btn-primary">
                       Delete{' '}
                     </button>
                     <button

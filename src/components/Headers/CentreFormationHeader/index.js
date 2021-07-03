@@ -59,13 +59,7 @@ function CentreFormationHeader() {
               href="#"
               role="button"
             >
-              <img
-                src="assets/img/flags/us-1.png"
-                alt
-                width={24}
-                height={16}
-                className="lang-flag mr-1"
-              />{' '}
+             <i class="fa fa-language"></i>
               English
             </a>
             <div className="dropdown-menu dropdown-menu-right">
