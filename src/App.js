@@ -12,13 +12,14 @@ import Profile from './containers/users/admin/profile/index'
 import Allformations from './containers/users/admin/formations/index'
 import CentreFormation from './containers/users/CentreFormation/index'
 import FormationCentreFormation from './containers/users/CentreFormation/FormationCentreFormation/index'
-import Salle from './containers/users/CentreFormation/Salle'
+import ContratFormation from './containers/users/CentreFormation/ContratFormation'
+import SalleCentre from "./containers/users/CentreFormation/SalleCentre";
 import Dashboarcandidat from './containers/users/candidat/index'
 import CandidatProfile from './containers/users/candidat/CandidatProfile/index'
 import Subscriptions from "./containers/users/candidat/subscriptions";
 import DashboardFormateur from './containers/users/formateur/index'
 import FormationFormateur from './containers/users/formateur/FormationFormateur/index'
-import ContratFormation from './containers/users/formateur/ContratFormation/index'
+import ContratFormateur from './containers/users/formateur/ContratFormateur/index'
 
 function App() {
   return (
@@ -29,7 +30,6 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           <Route path="/about" exact component={About} />
-          <Route path="/salles" exact component={Salle} />
 
           <Route path="/formateurs" exact component={Formateur} />
           <Route path="/centres" exact component={CentresList} />
@@ -44,6 +44,8 @@ function App() {
 
           <Route path="/centre_formations/dashboard" exact component={CentreFormation} />
           <Route path="/centre_formations/formations" exact component={FormationCentreFormation} />
+          <Route path="/centre_formations/salles" exact component={SalleCentre} />
+          <Route path="/centre_formations/contratformation" exact component={ContratFormation} />
 
           <Route path="/candidat/dashboard" exact component={Dashboarcandidat} />
           <Route path="/candidat/profile" exact component={CandidatProfile} />
@@ -51,7 +53,7 @@ function App() {
 
           <Route path="/formateur/dashboard" exact component={DashboardFormateur}/>
           <Route path="/formateur/formations" exact component={FormationFormateur}/>
-          <Route path="/formateur/contratformation" exact component={ContratFormation}/>
+          <Route path="/formateur/contratformation" exact component={ContratFormateur}/>
 
         </Switch>
       </Router>

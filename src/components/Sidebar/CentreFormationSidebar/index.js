@@ -13,7 +13,6 @@ function CentreFormationSidebar() {
     dispatch(signout());
   };
   return (
-    <div>
       <div className="sidebar" id="sidebar">
         <div className="sidebar-inner slimscroll">
           <div id="sidebar-menu" className="sidebar-menu">
@@ -47,21 +46,33 @@ function CentreFormationSidebar() {
                 </a>
               </li>
               <li>
-                <a href="/salles">
+                <a href="/centre_formations/salles">
                   <FaIcons.FaCube />
                   <span> Rooms </span>
                 </a>
               </li>
               <li className="submenu">
                 <a href="#">
-                  <IoIcons.IoIosPaper />
-                  <span> training centers</span>
+                  <FaIcons.FaUsers />
+                  <span> Trainers</span>
+                </a>
+              </li>
+              <li className="submenu">
+                <a href="#">
+                  <FaIcons.FaCertificate/>
+                  <span> Certificat</span>
                 </a>
               </li>
               <li className="submenu">
                 <a href="#">
                   <FaIcons.FaEnvelopeOpenText />
                   <span> Messages</span>
+                </a>
+              </li>
+              <li className="submenu">
+                <a href="#">
+                  <IoIcons.IoIosPaper />
+                  <span> training centers</span>
                 </a>
               </li>
               <li className="menu-title">
@@ -105,7 +116,6 @@ function CentreFormationSidebar() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 export default CentreFormationSidebar;

@@ -10,7 +10,6 @@ function CentreFormationHeader() {
     dispatch(signout());
   };
   return (
-    <div>
       <div className="header">
         {/* Logo */}
         <div className="header-left">
@@ -256,7 +255,6 @@ function CentreFormationHeader() {
         </ul>
         {/* /Header Right Menu */}
       </div>
-    </div>
   );
 }
 export default CentreFormationHeader;

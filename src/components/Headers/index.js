@@ -57,7 +57,7 @@ function Header() {
                 </ul>
               </li>
               <li className="has-submenu">
-                <a href="formateurs">Trainers</a>
+                <a href="/formateurs">Trainers</a>
               </li>
               <li className="has-submenu">
                 <a href="/centres">Training Centers</a>

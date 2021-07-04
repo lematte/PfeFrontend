@@ -6,9 +6,10 @@ import FormateurSidebar from '../../../../components/Sidebar/FormateurSidebar/in
 function ContratFormation() {
   return (
     <div className="page-wrapper">
-      <div className="content container-fluid">
-        <FormateurHeader />
+       <FormateurHeader />
         <FormateurSidebar />
+      <div className="content container-fluid">
+       
         {/* Page Header */}
         <div className="page-header">
           <div className="row">
@@ -93,6 +94,6 @@ function ContratFormation() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 export default ContratFormation;

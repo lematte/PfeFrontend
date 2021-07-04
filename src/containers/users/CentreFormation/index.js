@@ -150,9 +150,9 @@ function CentreFormationDashboard() {
                         </div>
                       </div>
                       <div class="dash-widget-info">
-                        <h6 class="text-muted">Members</h6>
+                        <h6 class="text-muted">Students</h6>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-primary w-50"></div>
+                          <div class="progress-bar bg-primary w-100"></div>
                         </div>
                       </div>
                     </div>
@@ -172,7 +172,7 @@ function CentreFormationDashboard() {
                       <div class="dash-widget-info">
                         <h6 class="text-muted">Appointments</h6>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-success w-50"></div>
+                          <div class="progress-bar bg-success w-100"></div>
                         </div>
                       </div>
                     </div>
@@ -192,7 +192,7 @@ function CentreFormationDashboard() {
                       <div class="dash-widget-info">
                         <h6 class="text-muted">Mentoring Points</h6>
                         <div class="progress progress-sm">
-                          <div class="progress-bar bg-warning w-50"></div>
+                          <div class="progress-bar bg-warning w-100"></div>
                         </div>
                       </div>
                     </div>
