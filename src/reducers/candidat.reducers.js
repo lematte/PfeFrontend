@@ -6,7 +6,7 @@ const initState = {
   update: '',
 };
 
-export default (state = {initState}, action) => {
+const CandidatReducer = (state = {initState}, action) => {
   //console.log(action)
   switch (action.type) {
     case candidatConstants.GETBYIDUSER_CANDIDAT_SUCCESS:
@@ -39,6 +39,9 @@ export default (state = {initState}, action) => {
         update: 'false',
       };
       break;
+    default:
+      console.log('default');
   }
   return state;
 };
+export default CandidatReducer;

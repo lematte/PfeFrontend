@@ -4,7 +4,7 @@ import FormateurSidebar from '../../../components/Sidebar/FormateurSidebar/index
 
 export default function Formateur() {
   return (
-    <div className="main-wrapper">
+    <div class="main-wrapper">
       <FormateurHeader />
       <FormateurSidebar />
       {/*<!-- Page Wrapper -->*/}

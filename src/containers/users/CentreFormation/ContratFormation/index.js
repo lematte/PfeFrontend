@@ -1,90 +1,80 @@
-import React, {useState, useEffect, useMemo} from 'react';
-import * as FaIcons from 'react-icons/fa';
-
-import CentreFormationHeader from '../../../../components/Headers/CentreFormationHeader/index';
-import CentreFormationSidebar from '../../../../components/Sidebar/CentreFormationSidebar/index';
-
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useState, useEffect, useMemo } from "react";
+import * as FaIcons from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import CentreFormationHeader from "../../../../components/Headers/CentreFormationHeader/index";
+import CentreFormationSidebar from "../../../../components/Sidebar/CentreFormationSidebar/index";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   getByIdCentre,
   getContratsByIdFormation,
-} from '../../../../actions/index';
+  DeleteContrat,
+} from "../../../../actions/index";
+
 var donnees = [];
+
 function ContratFormation() {
   const dispatch = useDispatch();
-  const Centre = JSON.parse(localStorage.getItem('Centre'));
+  const Centre = JSON.parse(localStorage.getItem("Centre"));
+  var formationCenter = JSON.parse(localStorage.getItem("formationCenter"));
 
-  useMemo(() => {
-    dispatch(getByIdCentre(Centre._id));
-  }, []);
-  
-  const formation = useSelector((state) => state.Formation.formations);
-  console.log(formation);
-  
   useEffect(() => {
-    if (formation.length > 0) {
-      formation.map(
-        (f, index) => (
-          dispatch(getContratsByIdFormation(f._id, donnees))
-        )
+    if (formationCenter.length > 0) {
+      console.log(formationCenter);
+      formationCenter.map((f, index) =>
+        dispatch(getContratsByIdFormation(f._id, donnees))
       );
     }
   }, []);
+/*
+  const formation = useSelector((state) => state.Formation.formations);
+  useEffect(() => {
+    if (formation.length > 0) {
+      console.log(formation);
+      formation.map((f, index) =>
+        dispatch(getContratsByIdFormation(f._id, donnees))
+      );
+    }
+  }, []);
+*/  
+//var donneslocal = JSON.parse(localStorage.getItem("contratformation"));
 
-  var donneslocal = JSON.parse(localStorage.getItem('contratformation'));
-  /*
-  const comp = donneslocal.length;
-  if (comp > 0) {
-    var m = donneslocal.map((f, index) =>
-      f.map((element) => {
-        console.log(element);
-        console.log(element._id)
-      })
-    );
-  }*/
-  // const tabContrat = JSON.parse(localStorage.getItem('ContratFormation'))
+  var idC;
+  const Id = (id) => {
+    idC = id;
+    console.log(idC);
+  };
+  const Delete = () => {
+    console.log(idC);
+    dispatch(DeleteContrat(idC));
+  };      
 
-  //tabContrat = tabContrat.concat(tabContrat)
-  // console.log(tabContrat)
+  var donneslocal = JSON.parse(localStorage.getItem("contratformation"));
+  console.log(donneslocal)
   return (
-    <div className="main-wrapper">
+    <div class="main-wrapper">
       <CentreFormationHeader />
       <CentreFormationSidebar />
-      <div class="page-wrapper">
-        <div class="content container-fluid">
+      <div className="page-wrapper">
+        <div className="content container-fluid">
           {/* Page Header */}
           <div className="page-header">
             <div className="row">
               <div className="col-sm-12">
-                <p className="page-title">
-                  X
-                  {
-                  (donneslocal.length > 0) ?(
-                    donneslocal.map((f, index) =>
-                    f.map((element) => {
-                     return (
-                     <p>
-                         {element._id}
-                         </p>
-                        )
-                    }))
-                  ): "vide"
-                 }
-                </p>
-                <a
-                  class="btn btn-sm  btn-outline-info "
+                <p className="page-title"> title</p>
+                <NavLink
+                  className="btn btn-sm  btn-outline-info "
                   data-toggle="modal"
-                  href="#add"
+                  to="#"
                 >
                   <FaIcons.FaPlus /> add
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           {/* /Page Header */}
-          <div classname="row">
-            <div classname="col-sm-12">
+          <div className="row">
+            <div className="col-sm-12">
               {/* Page Content */}
               <div className="content">
                 <div className="container-fluid">
@@ -99,54 +89,69 @@ function ContratFormation() {
                                 <th>Name</th>
                                 <th>Document</th>
                                 <th className="text-center">Actions</th>
-
                                 <th />
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>
-                                  <a href="invoice-view.html">Libelle</a>
-                                </td>
-                                <td>Document</td>
-                                <td className="text-center">
-                                  <div className="actions">
-                                    <a
-                                      className="btn btn-sm bg-success-light mr-2"
-                                      data-toggle="modal"
-                                      href="#editSalle"
-                                    >
-                                      <i className="fas fa-pencil-alt" /> Edit
-                                    </a>
-                                    <a
-                                      className="btn btn-sm bg-danger-light"
-                                      data-toggle="modal"
-                                      href="#delete_modal"
-                                    >
-                                      <i className="far fa-trash-alt" /> Delete
-                                    </a>
-                                  </div>
-                                </td>
+                              {donneslocal && donneslocal.length > 0
+                                ? donneslocal.map((f, index) =>
+                                    f.map((element) => {
+                                      return (
+                                        <tr>
+                                          <td>
+                                            <NavLink to="">
+                                              {element.Libelle}
+                                            </NavLink>
+                                          </td>
+                                          <td>{element.Contrat}</td>
+                                          <td className="text-center">
+                                            <div className="actions">
+                                              <NavLink
+                                                className="btn btn-sm bg-success-light mr-2"
+                                                data-toggle="modal"
+                                                to="#"
+                                              >
+                                                <i className="fas fa-pencil-alt" />{" "}
+                                                Edit
+                                              </NavLink>
+                                              <NavLink
+                                                className="btn btn-sm bg-danger-light"
+                                                data-toggle="modal"
+                                                to="#delete_modal"
+                                                onClick={() => Id(element._id)}
+                                                data-target="#delete_modal"
+                                              >
+                                                <i className="far fa-trash-alt" />{" "}
+                                                Delete
+                                              </NavLink>
+                                            </div>
+                                          </td>
 
-                                <td class="text-center">
-                                  <div class="actions">
-                                    <a
-                                      data-toggle="modal"
-                                      href="#edit_invoice_report"
-                                      class="btn btn-sm bg-success-light mr-2"
-                                    >
-                                      <i class="fas fa-eye"></i> View
-                                    </a>
-                                    <a
-                                      class="btn btn-sm bg-primary-light"
-                                      data-toggle="modal"
-                                      href="#delete_modal"
-                                    >
-                                      <i className="fas fa-print" /> Print
-                                    </a>
-                                  </div>
-                                </td>
-                              </tr>
+                                          <td className="text-center">
+                                            <div className="actions">
+                                              <NavLink
+                                                data-toggle="modal"
+                                                to="#edit_invoice_report"
+                                                className="btn btn-sm bg-success-light mr-2"
+                                              >
+                                                <i className="fas fa-eye"></i>{" "}
+                                                View
+                                              </NavLink>
+                                              <NavLink
+                                                className="btn btn-sm bg-primary-light"
+                                                data-toggle="modal"
+                                                to="#delete_modal"
+                                              >
+                                                <i className="fas fa-print" />{" "}
+                                                Print
+                                              </NavLink>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      );
+                                    })
+                                  )
+                                : "vide"}
                             </tbody>
                           </table>
                         </div>
@@ -157,6 +162,40 @@ function ContratFormation() {
                 </div>
               </div>
               {/* /Page Content */}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="delete_modal"
+        aria-hidden="true"
+        role="dialog"
+        // onSubmit={Delete}
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="form-content p-2">
+                <h4 class="modal-title">Delete</h4>
+                <p class="mb-4">Are you sure want to delete?</p>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  onClick={Delete}
+                  data-dismiss="modal"
+                >
+                  Delete{" "}
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>

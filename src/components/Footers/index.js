@@ -3,48 +3,48 @@ import React from 'react';
 const Footer = () => {
   return (
     <>
-      <footer className="footer ">
+      <footer class="footer ">
         {/* Footer Top */}
-        <div className="footer-top">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-lg-3 col-md-6">
+        <div class="footer-top">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div className="footer-widget footer-about">
-                  <div className="footer-logo">
+                <div class="footer-widget footer-about">
+                  <div class="footer-logo">
                     <img src="assets/img/logo.png" alt="logo" />
                   </div>
-                  <div className="footer-about-content">
+                  <div class="footer-about-content">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua.{' '}
                     </p>
-                    <div className="social-icon">
+                    <div class="social-icon">
                       <ul>
                         <li>
                           <a href="#" target="_blank">
-                            <i className="fab fa-facebook-f" />{' '}
+                            <i class="fab fa-facebook-f" />{' '}
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i className="fab fa-twitter" />{' '}
+                            <i class="fab fa-twitter" />{' '}
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i className="fab fa-linkedin-in" />
+                            <i class="fab fa-linkedin-in" />
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i className="fab fa-instagram" />
+                            <i class="fab fa-instagram" />
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i className="fab fa-dribbble" />{' '}
+                            <i class="fab fa-dribbble" />{' '}
                           </a>
                         </li>
                       </ul>
@@ -53,10 +53,10 @@ const Footer = () => {
                 </div>
                 {/* /Footer Widget */}
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div class="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div className="footer-widget footer-menu">
-                  <h2 className="footer-title">Categories</h2>
+                <div class="footer-widget footer-menu">
+                  <h2 class="footer-title">Categories</h2>
                   <ul>
                     <li>
                       <a href="search.html">Search Mentors</a>
@@ -77,10 +77,10 @@ const Footer = () => {
                 </div>
                 {/* /Footer Widget */}
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div class="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div className="footer-widget footer-menu">
-                  <h2 className="footer-title">For Mentors</h2>
+                <div class="footer-widget footer-menu">
+                  <h2 class="footer-title">For Mentors</h2>
                   <ul>
                     <li>
                       <a href="appointments.html">Appointments</a>
@@ -101,14 +101,14 @@ const Footer = () => {
                 </div>
                 {/* /Footer Widget */}
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div class="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div className="footer-widget footer-contact">
-                  <h2 className="footer-title">Contact Us</h2>
-                  <div className="footer-contact-info">
-                    <div className="footer-address">
+                <div class="footer-widget footer-contact">
+                  <h2 class="footer-title">Contact Us</h2>
+                  <div class="footer-contact-info">
+                    <div class="footer-address">
                       <span>
-                        <i className="fas fa-map-marker-alt" />
+                        <i class="fas fa-map-marker-alt" />
                       </span>
                       <p>
                         {' '}
@@ -118,11 +118,11 @@ const Footer = () => {
                     </div>
                     <br/>
                     <p>
-                      <i className="fas fa-phone-alt" />
+                      <i class="fas fa-phone-alt" />
                       +216 500 000 00
                     </p>
-                    <p className="mb-0">
-                      <i className="fas fa-envelope" />
+                    <p class="mb-0">
+                      <i class="fas fa-envelope" />
                       Training4All@example.com
                     </p>
                   </div>
@@ -134,14 +134,14 @@ const Footer = () => {
         </div>
         {/* /Footer Top */}
         {/* Footer Bottom */}
-        <div className="footer-bottom">
-          <div className="container-fluid">
+        <div class="footer-bottom">
+          <div class="container-fluid">
             {/* Copyright */}
-            <div className="copyright">
-              <div className="row">
-                <div className="col-12 text-center">
-                  <div className="copyright-text">
-                    <p className="mb-0">
+            <div class="copyright">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <div class="copyright-text">
+                    <p class="mb-0">
                       © 2020 Training4All. All rights reserved.
                     </p>
                   </div>

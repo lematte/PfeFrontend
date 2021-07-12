@@ -1,37 +1,37 @@
-import {formationConstants, formationgetByIdCentreConstants,DeleteformationConstants} from '../actions/constants';
+import {formationConstants, formationgetByIdCentreConstants,DeleteformationConstants} from "../actions/constants";
 const initialState = {
   Formation: [],
   formations : [],
   message: null,
-  error: null,
-};
+  error: null
+}
 
-export default (state = initialState, action) => {
+const FormationReducer =(state = initialState, action) => {
   switch (action.type) {
-    case formationConstants.GET_FORMATION_SUCCESS:
+    case formationConstants.GET_FORMATION_SUCCESS :
       state = {
         ...state,
         Formation: action.payload.Formation,
-        message: ' ',
-      };
+        message: 'ok '
+      }
       break;
-    case formationConstants.GET_FORMATION_FAILURE:
+    case formationConstants.GET_FORMATION_FAILURE :
       state = {
         ...state,
-        error: action.payload.error,
+        error: action.payload.error
       };
       break;
-      case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_SUCCESS:
+      case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_SUCCESS :
         state = {
           ...state,
           formations: action.payload.formations,
           message: ' ',
         };
         break;
-        case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_FAILURE:
+        case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_FAILURE :
         state = {
           ...state,
-          error: action.payload.error,
+          error: action.payload.error
         };
         break;
         case DeleteformationConstants.DELETE_FORMATION_SUCCESS:
@@ -51,3 +51,6 @@ export default (state = initialState, action) => {
   }
   return state;
 };
+
+
+export default FormationReducer;

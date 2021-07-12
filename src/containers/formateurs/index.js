@@ -4,7 +4,7 @@ import {IconContext} from 'react-icons';
 import {useSelector, useDispatch} from 'react-redux';
 import {getFormateur} from '../../actions/index';
 import Layout from '../../components/layouts';
-function Formateur() {
+function Formateurs() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFormateur());
@@ -14,75 +14,75 @@ function Formateur() {
 
   return (
     <Layout>
-      <div className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
               {/* Search Filter */}
-              <div className="card search-filter">
-                <div className="card-header">
-                  <h4 className="card-title mb-0">Search Filter</h4>
+              <div class="card search-filter">
+                <div class="card-header">
+                  <h4 class="card-title mb-0">Search Filter</h4>
                 </div>
-                <div className="card-body">
-                  <div className="filter-widget">
+                <div class="card-body">
+                  <div class="filter-widget">
                     <div>
                       <input
                         type="text"
-                        className="form-control"
+                        class="form-control"
                         placeholder="Search"
                       />
                     </div>
                   </div>
-                  <div className="filter-widget">
+                  <div class="filter-widget">
                     <h4>Select Courses</h4>
                     <div>
-                      <label className="custom_check">
+                      <label class="custom_check">
                         <input
                           type="checkbox"
                           name="select_specialist"
                           defaultChecked
                         />
-                        <span className="checkmark" /> Digital Marketer
+                        <span class="checkmark" /> Digital Marketer
                       </label>
                     </div>
                     <div>
-                      <label className="custom_check">
+                      <label class="custom_check">
                         <input
                           type="checkbox"
                           name="select_specialist"
                           defaultChecked
                         />
-                        <span className="checkmark" /> UNIX, Calculus,
+                        <span class="checkmark" /> UNIX, Calculus,
                         Trigonometry
                       </label>
                     </div>
                     <div>
-                      <label className="custom_check">
+                      <label class="custom_check">
                         <input type="checkbox" name="select_specialist" />
-                        <span className="checkmark" /> Computer Programming
+                        <span class="checkmark" /> Computer Programming
                       </label>
                     </div>
                     <div>
-                      <label className="custom_check">
+                      <label class="custom_check">
                         <input type="checkbox" name="select_specialist" />
-                        <span className="checkmark" /> ASP.NET,Computer Gaming
+                        <span class="checkmark" /> ASP.NET,Computer Gaming
                       </label>
                     </div>
                     <div>
-                      <label className="custom_check">
+                      <label class="custom_check">
                         <input type="checkbox" name="select_specialist" />
-                        <span className="checkmark" /> HTML, Css
+                        <span class="checkmark" /> HTML, Css
                       </label>
                     </div>
                     <div>
-                      <label className="custom_check">
+                      <label class="custom_check">
                         <input type="checkbox" name="select_specialist" />
-                        <span className="checkmark" /> VB, VB.net
+                        <span class="checkmark" /> VB, VB.net
                       </label>
                     </div>
                   </div>
-                  <div className="btn-search">
-                    <button type="button" className="btn btn-block">
+                  <div class="btn-search">
+                    <button type="button" class="btn btn-block">
                       Search
                     </button>
                   </div>
@@ -90,45 +90,45 @@ function Formateur() {
               </div>
               {/* /Search Filter */}
             </div>
-            <div className="col-md-12 col-lg-8 col-xl-9">
+            <div class="col-md-12 col-lg-8 col-xl-9">
               {/* Page Content */}
               <div>
-                <div className="row row-grid">
+                <div class="row row-grid">
                   {Formateur.length > 0
                     ? Formateur.map((formateur , index) => (
-                        <div className="col-md-6 col-lg-4 col-xl-3">
-                          <div className="card widget-profile user-widget-profile">
-                            <div className="card-body">
-                              <div className="pro-widget-content">
-                                <div className="profile-info-widget">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                          <div class="card widget-profile user-widget-profile">
+                            <div class="card-body">
+                              <div class="pro-widget-content">
+                                <div class="profile-info-widget">
                                   <a
-                                    href="profile-mentee.html"
-                                    className="booking-user-img"
+                                    href="/formateur"
+                                    class="booking-user-img"
                                   >
                                     <img
                                       src="assets/img/user/user.jpg"
                                       alt="User Image"
                                     />
                                   </a>
-                                  <div className="profile-det-info">
+                                  <div class="profile-det-info">
                                     <h3>
-                                      <a href="profile-mentee.html">
+                                      <a href="/formateur">
                                       {formateur.Prenom} {formateur.Nom} 
                                       </a>
                                     </h3>
-                                    <div className="mentee-details">
+                                    <div class="mentee-details">
                                       <h5>
                                         <b> ID :</b> {index+1}
                                       </h5>
-                                      <h5 className="mb-0">
-                                        <i className="fas fa-map-marker-alt" />{' '}
+                                      <h5 class="mb-0">
+                                        <i class="fas fa-map-marker-alt" />{' '}
                                         {formateur.User.Pays}, {formateur.User.Ville}
                                       </h5>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div className="mentee-info">
+                              <div class="mentee-info">
                                 <ul>
                                   <li>
                                     Phone <span>{formateur.User.Téléphone}</span>
@@ -147,64 +147,64 @@ function Formateur() {
               </div>
               {/* /Page Content */}
               {/* 
-              <div className="card">
-                <div className="card-body">
-                  <div className="mentor-widget">
-                    <div className="user-info-left">
-                      <div className="mentor-img">
+              <div class="card">
+                <div class="card-body">
+                  <div class="mentor-widget">
+                    <div class="user-info-left">
+                      <div class="mentor-img">
                         <a href="profile.html">
                           <img
                             src="assets/img/user/user2.jpg"
-                            className="img-fluid"
+                            class="img-fluid"
                             alt="User Image"
                           />
                         </a>
                       </div>
-                      <div className="user-info-cont">
-                        <h4 className="usr-name">
+                      <div class="user-info-cont">
+                        <h4 class="usr-name">
                           <a href="profile.html">Deborah Angel</a>
                         </h4>
-                        <p className="mentor-type">
+                        <p class="mentor-type">
                           UNIX, Calculus, Trigonometry
                         </p>
-                        <div className="rating">
-                          <i className="fas fa-star filled" />
-                          <i className="fas fa-star filled" />
-                          <i className="fas fa-star filled" />
-                          <i className="fas fa-star filled" />
-                          <i className="fas fa-star" />
-                          <span className="d-inline-block average-rating">
+                        <div class="rating">
+                          <i class="fas fa-star filled" />
+                          <i class="fas fa-star filled" />
+                          <i class="fas fa-star filled" />
+                          <i class="fas fa-star filled" />
+                          <i class="fas fa-star" />
+                          <span class="d-inline-block average-rating">
                             (27)
                           </span>
                         </div>
-                        <div className="mentor-details">
-                          <p className="user-location">
-                            <i className="fas fa-map-marker-alt" /> Georgia, USA
+                        <div class="mentor-details">
+                          <p class="user-location">
+                            <i class="fas fa-map-marker-alt" /> Georgia, USA
                           </p>
                         </div>
                       </div>
                     </div>
-                    <div className="user-info-right">
-                      <div className="user-infos">
+                    <div class="user-info-right">
+                      <div class="user-infos">
                         <ul>
                           <li>
-                            <i className="far fa-comment" /> 35 Feedback
+                            <i class="far fa-comment" /> 35 Feedback
                           </li>
                           <li>
-                            <i className="fas fa-map-marker-alt" /> Newyork, USA
+                            <i class="fas fa-map-marker-alt" /> Newyork, USA
                           </li>
                           <li>
-                            <i className="far fa-money-bill-alt" /> $100 - $400{' '}
+                            <i class="far fa-money-bill-alt" /> $100 - $400{' '}
                             <i
-                              className="fas fa-info-circle"
+                              class="fas fa-info-circle"
                               data-toggle="tooltip"
                               title="Lorem Ipsum"
                             />
                           </li>
                         </ul>
                       </div>
-                      <div className="mentor-booking">
-                        <a className="apt-btn" href="booking.html">
+                      <div class="mentor-booking">
+                        <a class="apt-btn" href="booking.html">
                           Book Appointment
                         </a>
                       </div>
@@ -220,33 +220,33 @@ function Formateur() {
     </Layout>
   );
 }
-export default Formateur;
+export default Formateurs;
 /*
-                  <div className="card widget-profile user-widget-profile">
-                    <div className="card-body">
-                      <div className="pro-widget-content">
-                        <div className="profile-info-widget">
-                          <a href="#" className="booking-user-img">
+                  <div class="card widget-profile user-widget-profile">
+                    <div class="card-body">
+                      <div class="pro-widget-content">
+                        <div class="profile-info-widget">
+                          <a href="#" class="booking-user-img">
                             <img
                               src="assets/img/user/user11.jpg"
                               alt="User Image"
                             />
                           </a>
-                          <div className="profile-det-info">
+                          <div class="profile-det-info">
                             <h3>Harry Williams</h3>
-                            <div className="mentee-details">
+                            <div class="mentee-details">
                               <h5>
                                 <b>Mentee ID :</b> 11
                               </h5>
-                              <h5 className="mb-0">
-                                <i className="fas fa-map-marker-alt" />{' '}
+                              <h5 class="mb-0">
+                                <i class="fas fa-map-marker-alt" />{' '}
                                 Colorado, USA
                               </h5>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="mentee-info">
+                      <div class="mentee-info">
                         <ul>
                           <li>
                             Phone <span>+1 303 607 7075</span>

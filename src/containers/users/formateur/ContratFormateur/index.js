@@ -5,16 +5,16 @@ import FormateurSidebar from '../../../../components/Sidebar/FormateurSidebar/in
 
 function ContratFormation() {
   return (
-    <div className="page-wrapper">
+    <div class="page-wrapper">
        <FormateurHeader />
         <FormateurSidebar />
-      <div className="content container-fluid">
+      <div class="content container-fluid">
        
         {/* Page Header */}
-        <div className="page-header">
-          <div className="row">
-            <div className="col-sm-12">
-              <h3 className="page-title">Contract Page</h3>
+        <div class="page-header">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3 class="page-title">Contract Page</h3>
             </div>
           </div>
         </div>
@@ -22,14 +22,14 @@ function ContratFormation() {
         <div classname="row">
           <div classname="col-sm-12">
             {/* Page Content */}
-            <div className="content">
-              <div className="container-fluid">
-                <div className="row">
-                  <div className="card card-table">
-                    <div className="card-body">
+            <div class="content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="card card-table">
+                    <div class="card-body">
                       {/* Invoice Table */}
-                      <div className="table-responsive">
-                        <table className="table table-hover table-center mb-0">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-center mb-0">
                           <thead>
                             <tr>
                               <th>Name</th>
@@ -44,13 +44,13 @@ function ContratFormation() {
                                 <a href="invoice-view.html">#INV-0010</a>
                               </td>
                               <td>
-                                <h2 className="table-avatar">
+                                <h2 class="table-avatar">
                                   <a
                                     href="profile-mentee.html"
-                                    className="avatar avatar-sm mr-2"
+                                    class="avatar avatar-sm mr-2"
                                   >
                                     <img
-                                      className="avatar-img rounded-circle"
+                                      class="avatar-img rounded-circle"
                                       src="assets/img/user/user2.jpg"
                                       alt="..."
                                     />
@@ -75,7 +75,7 @@ function ContratFormation() {
                                     data-toggle="modal"
                                     href="#delete_modal"
                                   >
-                                    <i className="fas fa-print" />  Print
+                                    <i class="fas fa-print" />  Print
                                   </a>
                                 </div>
                               </td>

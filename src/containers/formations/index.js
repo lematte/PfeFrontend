@@ -16,75 +16,75 @@ function Formations() {
   return (
     <div>
       <Layout>
-        <div className="content">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-md-3 col-lg-3 col-xl-3 theiaStickySidebar">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 col-xl-3 theiaStickySidebar">
                 {/* Search Filter */}
-                <div className="card search-filter">
-                  <div className="card-header">
-                    <h4 className="card-title mb-0">Search Filter</h4>
+                <div class="card search-filter">
+                  <div class="card-header">
+                    <h4 class="card-title mb-0">Search Filter</h4>
                   </div>
-                  <div className="card-body">
-                    <div className="filter-widget">
+                  <div class="card-body">
+                    <div class="filter-widget">
                       <div>
                         <input
                           type="text"
-                          className="form-control"
+                          class="form-control"
                           placeholder="Search"
                         />
                       </div>
                     </div>
-                    <div className="filter-widget">
+                    <div class="filter-widget">
                       <h4>Select Courses</h4>
                       <div>
-                        <label className="custom_check">
+                        <label class="custom_check">
                           <input
                             type="checkbox"
                             name="select_specialist"
                             defaultChecked
                           />
-                          <span className="checkmark" /> Digital Marketer
+                          <span class="checkmark" /> Digital Marketer
                         </label>
                       </div>
                       <div>
-                        <label className="custom_check">
+                        <label class="custom_check">
                           <input
                             type="checkbox"
                             name="select_specialist"
                             defaultChecked
                           />
-                          <span className="checkmark" /> UNIX, Calculus,
+                          <span class="checkmark" /> UNIX, Calculus,
                           Trigonometry
                         </label>
                       </div>
                       <div>
-                        <label className="custom_check">
+                        <label class="custom_check">
                           <input type="checkbox" name="select_specialist" />
-                          <span className="checkmark" /> Computer Programming
+                          <span class="checkmark" /> Computer Programming
                         </label>
                       </div>
                       <div>
-                        <label className="custom_check">
+                        <label class="custom_check">
                           <input type="checkbox" name="select_specialist" />
-                          <span className="checkmark" /> ASP.NET,Computer Gaming
+                          <span class="checkmark" /> ASP.NET,Computer Gaming
                         </label>
                       </div>
                       <div>
-                        <label className="custom_check">
+                        <label class="custom_check">
                           <input type="checkbox" name="select_specialist" />
-                          <span className="checkmark" /> HTML, Css
+                          <span class="checkmark" /> HTML, Css
                         </label>
                       </div>
                       <div>
-                        <label className="custom_check">
+                        <label class="custom_check">
                           <input type="checkbox" name="select_specialist" />
-                          <span className="checkmark" /> VB, VB.net
+                          <span class="checkmark" /> VB, VB.net
                         </label>
                       </div>
                     </div>
-                    <div className="btn-search">
-                      <button type="button" className="btn btn-block">
+                    <div class="btn-search">
+                      <button type="button" class="btn btn-block">
                         Search
                       </button>
                     </div>
@@ -92,28 +92,28 @@ function Formations() {
                 </div>
                 {/* /Search Filter */}
               </div>
-              <div className="col-md-8 col-lg-8 col-xl-8">
-                <div className="row row-grid">
+              <div class="col-md-8 col-lg-8 col-xl-8">
+                <div class="row row-grid">
                 {formation.length > 0
                 ? formation.map((f) => (
-                  <div className="col-md-4  col-lg-4 col-xl-4">
+                  <div class="col-md-4  col-lg-4 col-xl-4">
                     <div
-                      className="blog grid-blog "
+                      class="blog grid-blog "
                       style={{marginRight: '5px'}}
                     >
-                      <div className="blog-image">
+                      <div class="blog-image">
                         <a href="blog-details.html">
                           <img
-                            className="img-fluid"
+                            class="img-fluid"
                             src="assets/img/blog/blog-01.jpg"
                             alt="Post Image"
                           />
                         </a>
                       </div>
-                      <div className="blog-content">
-                        <ul className="entry-meta meta-item">
+                      <div class="blog-content">
+                        <ul class="entry-meta meta-item">
                           <li>
-                            <div className="post-author">
+                            <div class="post-author">
                               <a href="blog-details.html">
                                 <span>{f.Libelle}</span>
                               </a>
@@ -123,16 +123,16 @@ function Formations() {
                             {f.Prix} DTN
                           </li>
                           <li>
-                            <i className="far fa-clock" />{f.Durrée}
+                            <i class="far fa-clock" />{f.Durrée}
                           </li>
                         </ul>
-                        <h3 className="blog-title">
+                        <h3 class="blog-title">
                           <a href="blog-details.html">
                           {f.Description}
                           </a>
                         </h3>
                        
-                        <p className="mb-0">
+                        <p class="mb-0">
                          Centre : {f.Centre_formation.Nom_centre}
                         </p>
                         <span>  {f.Type}</span>

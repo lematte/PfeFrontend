@@ -77,16 +77,16 @@ function Salle() {
   };
 
   return (
-    <div className="main-wrapper">
+    <div class="main-wrapper">
     <CentreFormationHeader />
       <CentreFormationSidebar />
-      <div className="page-wrapper">
-        <div className="content container-fluid">
+      <div class="page-wrapper">
+        <div class="content container-fluid">
           {/* Page Header */}
-            <div className="row">
-              <div className="col-sm-9 col-sm-12">
+            <div class="row">
+              <div class="col-sm-9 col-sm-12">
                 
-                <h3 className="page-title">Courses </h3>
+                <h3 class="page-title">Courses </h3>
                 <a
                   class="btn btn-sm  btn-outline-info "
                   data-toggle="modal"
@@ -100,10 +100,10 @@ function Salle() {
           <div classname="row">
             <div classname="col-sm-12">
               Contents
-              <div className="card">
-                <div className="card-body">
-                  <div className="table-responsive">
-                    <table className=" table table-hover  ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class=" table table-hover  ">
                       <thead>
                         <tr>
                           <th>Libelle</th>
@@ -113,7 +113,7 @@ function Salle() {
                         <th>Date</th>
                         <th>Heure</th>
                        */}
-                          <th className="text-center">Actions</th>
+                          <th class="text-center">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -121,28 +121,28 @@ function Salle() {
                           ? Salles.map((s) => (
                               <tr>
                                 <td>
-                                  <h2 className="table-avatar">
+                                  <h2 class="table-avatar">
                                     <a href="invoice.html">{s.Libelle}</a>
                                   </h2>
                                 </td>
                                 <td>{s.etat}</td>
-                                <td className="text-center">
-                                  <div className="actions">
+                                <td class="text-center">
+                                  <div class="actions">
                                     <a
-                                      className="btn btn-sm bg-success-light mr-2"
+                                      class="btn btn-sm bg-success-light mr-2"
                                       data-toggle="modal"
                                       href="#editSalle"
                                       onClick={() => ID(s._id)}
                                     >
-                                      <i className="fas fa-pencil-alt" /> Edit
+                                      <i class="fas fa-pencil-alt" /> Edit
                                     </a>
                                     <a
-                                      className="btn btn-sm bg-danger-light"
+                                      class="btn btn-sm bg-danger-light"
                                       data-toggle="modal"
                                       href="#delete_modal"
                                       onClick={() => IdSalle(s._id)}
                                     >
-                                      <i className="far fa-trash-alt" /> Delete
+                                      <i class="far fa-trash-alt" /> Delete
                                     </a>
                                   </div>
                                 </td>
@@ -159,29 +159,29 @@ function Salle() {
 
           <div>
             
-          <div className="modal fade" id="add" aria-hidden="true" role="dialog">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">ADD</h5>
+          <div class="modal fade" id="add" aria-hidden="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">ADD</h5>
                   <button
                     type="button"
-                    className="close"
+                    class="close"
                     data-dismiss="modal"
                     aria-label="Close"
                   >
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                <div className="modal-body">
+                <div class="modal-body">
                   <form>
-                    <div className="row form-row">
-                      <div className="col-12">
-                        <div className="form-group">
+                    <div class="row form-row">
+                      <div class="col-12">
+                        <div class="form-group">
                           <label>Libelle</label>
                           <input
                             type="text"
-                            className="form-control"
+                            class="form-control"
                             defaultValue=""
                             value={Libelle}
                             onChange={(e) => {
@@ -190,8 +190,8 @@ function Salle() {
                           />
                         </div>
                       </div>
-                      <div className="col-12">
-                        <div className="form-group">
+                      <div class="col-12">
+                        <div class="form-group">
                           <label>Etat</label>
                           <select
                             class="form-control select"
@@ -216,7 +216,7 @@ function Salle() {
                     <br />
                     <button
                       type="submit"
-                      className="btn btn-primary btn-block"
+                      class="btn btn-primary btn-block"
                       onClick={ADD}
                       data-dismiss="modal"
                     >
@@ -231,36 +231,36 @@ function Salle() {
           
             {/* Edit Details Modal */}
             <div
-              className="modal fade"
+              class="modal fade"
               id="editSalle"
               aria-hidden="true"
               role="dialog"
             >
               <div
-                className="modal-dialog modal-dialog-centered"
+                class="modal-dialog modal-dialog-centered"
                 role="document"
               >
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title">Edit</h5>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit</h5>
                     <button
                       type="button"
-                      className="close"
+                      class="close"
                       data-dismiss="modal"
                       aria-label="Close"
                     >
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
-                  <div className="modal-body">
+                  <div class="modal-body">
                     <form>
-                      <div className="row form-row">
-                        <div className="col-12">
-                          <div className="form-group">
+                      <div class="row form-row">
+                        <div class="col-12">
+                          <div class="form-group">
                             <label>Libelle</label>
                             <input
                               type="text"
-                              className="form-control"
+                              class="form-control"
                               value={libelle}
                               onChange={(e) => {
                                 setLibell(e.target.value);
@@ -268,12 +268,12 @@ function Salle() {
                             />
                           </div>
                         </div>
-                        <div className="col-12">
-                          <div className="form-group">
+                        <div class="col-12">
+                          <div class="form-group">
                             <label>Etat</label>
                             <input
                               type="text"
-                              className="form-control"
+                              class="form-control"
                               value={Etat}
                               onChange={(e) => {
                                 setEta(e.target.value);
@@ -284,7 +284,7 @@ function Salle() {
                       </div>
                       <button
                         type="submit"
-                        className="btn btn-primary btn-block"
+                        class="btn btn-primary btn-block"
                         onClick={Update}
                         data-dismiss="modal"
                       >
@@ -299,24 +299,24 @@ function Salle() {
             {/* Delete Modal */}
 
             <div
-              className="modal fade"
+              class="modal fade"
               id="delete_modal"
               aria-hidden="true"
               role="dialog"
               // onSubmit={Delete}
             >
               <div
-                className="modal-dialog modal-dialog-centered"
+                class="modal-dialog modal-dialog-centered"
                 role="document"
               >
-                <div className="modal-content">
-                  <div className="modal-body">
-                    <div className="form-content p-2">
-                      <h4 className="modal-title">Delete</h4>
-                      <p className="mb-4">Are you sure want to delete?</p>
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div class="form-content p-2">
+                      <h4 class="modal-title">Delete</h4>
+                      <p class="mb-4">Are you sure want to delete?</p>
                       <button
                         type="submit"
-                        className="btn btn-primary"
+                        class="btn btn-primary"
                         onClick={Delete}
                         data-dismiss="modal"
                       >
@@ -324,7 +324,7 @@ function Salle() {
                       </button>
                       <button
                         type="button"
-                        className="btn btn-danger"
+                        class="btn btn-danger"
                         data-dismiss="modal"
                       >
                         Close

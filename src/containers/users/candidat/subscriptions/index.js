@@ -4,22 +4,22 @@ import CandidatHeader from '../../../../components/Headers/CandidatHeader/index'
 
 function Subscriptions() {
   return (
-    <div className="page-wrapper">
-      <div className="content container-fluid">
+    <div class="page-wrapper">
+      <div class="content container-fluid">
         <CandidatHeader />
         <CandidatSidebar />
         {/* Page Header */}
-        <div className="page-header">
-          <div className="row">
-            <div className="col-sm-12">
-              <h3 className="page-title">Subscriptions Page</h3>
+        <div class="page-header">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3 class="page-title">Subscriptions Page</h3>
             </div>
           </div>
         </div>
         {/* /Page Header */}
 
-        <div className="row">
-          <div className="col-sm-12">Contents here   
+        <div class="row">
+          <div class="col-sm-12">Contents here   
           </div>
         </div>
 

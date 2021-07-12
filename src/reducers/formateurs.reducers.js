@@ -5,7 +5,7 @@ const initialState = {
   error: null,
 };
 
-export default (state = initialState, action) => {
+const FormateurReducer = (state = initialState, action) => {
   switch (action.type) {
     case formateurConstants.GET_FORMATEUR_SUCCESS:
       state = {
@@ -26,3 +26,5 @@ export default (state = initialState, action) => {
   }
   return state;
 };
+
+export default FormateurReducer;

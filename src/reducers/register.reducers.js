@@ -7,7 +7,7 @@ const initState = {
   register: false,
 };
 
-export default (state = initState, action) => {
+const RegidterReducer = (state = initState, action) => {
   switch (action.type) {
     case registerConstants.REGISTER_REQUEST:
       state = {
@@ -35,6 +35,9 @@ export default (state = initState, action) => {
     //    error: action.payload.error,
       };
       break;
+      default:
+      console.log('default');
   }
   return state;
-};
+}
+export default RegidterReducer

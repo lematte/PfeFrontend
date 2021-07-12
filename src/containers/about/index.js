@@ -5,9 +5,9 @@ function About() {
   return (
     <div>
       <Layout>
-        <div className="content">
-          <div className="container-fluid">
-            <div className="row">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
               <div>
                 <main id="main">
                   <section id="about" class="about">
@@ -25,7 +25,7 @@ function About() {
                           />
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                          <div className="col-12">
+                          <div class="col-12">
                             <h5>About Us</h5>
                           
                           <h3>

@@ -59,6 +59,8 @@ export const getByIdCentre = (id) => {
     });
     const res = await axios.get(`/formations/getByIdCentre/` + id);
     console.log(res.data);
+    localStorage.setItem('formationCenter',JSON.stringify(res.data));
+
     if (res.status === 200) {
       // succes
       dispatch({

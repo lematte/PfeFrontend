@@ -15,26 +15,26 @@ const Centers = () => {
   return (
     <div>
       <Layout>
-      <div className="container-fluid">
-        <div className="breadcrumb-bar">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-8 col-12">
-                <h6 className="breadcrumb-title">
+      <div class="container-fluid">
+        <div class="breadcrumb-bar">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-8 col-12">
+                <h6 class="breadcrumb-title">
                   Les Centres de formations
                 </h6>
               </div>
-              <div className="col-md-4 col-12">
-                <form className="search-form custom-search-form">
-                  <div className="input-group">
+              <div class="col-md-4 col-12">
+                <form class="search-form custom-search-form">
+                  <div class="input-group">
                     <input
                       type="text"
                       placeholder="Search ..."
-                      className="form-control"
+                      class="form-control"
                     />
-                    <div className="input-group-append">
-                      <button type="submit" className="btn btn-primary">
-                        <i className="fa fa-search" />
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-search" />
                       </button>
                     </div>
                   </div>
@@ -44,42 +44,42 @@ const Centers = () => {
           </div>
         </div>
       </div>
-      <div className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="container">
-              <div className="r mb-3">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="container">
+              <div class="r mb-3">
                 <br />
                 <div
                   id="carouselExampleInterval"
-                  className="carousel slide"
+                  class="carousel slide"
                   data-ride="carousel"
                 >
-                  <div className="carousel-inner">
+                  <div class="carousel-inner">
                     <div
                       id="courses"
-                      className="row courses"
+                      class="row courses"
                       data-aos="zoom-in"
                       data-aos-delay="100"
                     >
                       {F.length > 0
                         ? F.map((centre_formation) => (
                             <div
-                              className="col-md-4 align-items-stretch"
+                              class="col-md-4 align-items-stretch"
                               style={{marginBottom: '30px'}}
                             >
                               <div
-                                className="card"
+                                class="card"
                                 key={centre_formation._id}
                                 data-aos="fade-up"
                               >
                                 <img
-                                  className="card-img-top"
+                                  class="card-img-top"
                                   variant="top"
                                   src={centre_formation.Photo}
                                   alt="Photo ..."
                                 />
-                                <div className="card-body course-content">
+                                <div class="card-body course-content">
                                   <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h4>{centre_formation.Nom_centre}</h4>
                                     <p>
@@ -99,7 +99,7 @@ const Centers = () => {
                                         class="img-fluid"
                                         alt=""
                                       />
-                                      <p className="card-text">
+                                      <p class="card-text">
                                         {'   '}
                                         {centre_formation.Nom_centre}
                                       </p>
@@ -118,28 +118,28 @@ const Centers = () => {
                   </div>
 
                   <a
-                    className="carousel-control-prev"
+                    class="carousel-control-prev"
                     href="#carouselExampleInterval"
                     role="button"
                     data-slide="prev"
                   >
                     <span
-                      className="carousel-control-prev-icon"
+                      class="carousel-control-prev-icon"
                       aria-hidden="true"
                     ></span>
-                    <span className="sr-only">Previous</span>
+                    <span class="sr-only">Previous</span>
                   </a>
                   <a
-                    className="carousel-control-next"
+                    class="carousel-control-next"
                     href="#carouselExampleInterval"
                     role="button"
                     data-slide="next"
                   >
                     <span
-                      className="carousel-control-next-icon"
+                      class="carousel-control-next-icon"
                       aria-hidden="true"
                     ></span>
-                    <span className="sr-only">Next</span>
+                    <span class="sr-only">Next</span>
                   </a>
                 </div>
               </div>

@@ -16,9 +16,9 @@ function Layout(props) {
         <br />
         <br />
         {props.sidebar ? (
-          <div className="container">
-            <div className="row">
-              <div className="col">{props.children}</div>
+          <div class="container">
+            <div class="row">
+              <div class="col">{props.children}</div>
             </div>{' '}
             !
           </div>

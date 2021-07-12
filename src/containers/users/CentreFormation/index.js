@@ -4,10 +4,9 @@ import CentreFormationSidebar from '../../../components/Sidebar/CentreFormationS
 
 function CentreFormationDashboard() {
   return (
-    <div className="main-wrapper">
+    <div class="main-wrapper">
       <CentreFormationHeader />
       <CentreFormationSidebar />
-      {/*<!-- Page Wrapper -->*/}
       <div class="page-wrapper">
         <div class="content container-fluid">
           <div class="row">

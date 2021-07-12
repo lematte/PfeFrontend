@@ -98,7 +98,7 @@ function Login() {
                       Don’t have an account? <a href="/register">Register</a>
                     </div>
                     <br />
-                    <div className={message ? 'alert alert-danger' : ' '}>
+                    <div class={message ? 'alert alert-danger' : ' '}>
                       {message}
                     </div>
                   </form>

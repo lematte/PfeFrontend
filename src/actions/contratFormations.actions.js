@@ -1,5 +1,5 @@
 import axios from '../helpers';
-import {ContratgetByIdFormationConstants} from './constants';
+import {ContratgetByIdFormationConstants,ContratConstants } from './constants';
 
 export const getContratsByIdFormation = (id, donnees) => {
   return async (dispatch) => {
@@ -11,7 +11,7 @@ export const getContratsByIdFormation = (id, donnees) => {
       donnees.push(res.data);
 
       console.log(donnees);
-      localStorage.setItem('contratformation',  JSON.stringify(donnees));
+      localStorage.setItem('contratformation',JSON.stringify(donnees));
 
     } catch (err) {
       console.log(err);
@@ -30,5 +30,31 @@ export const getContratsByIdFormation = (id, donnees) => {
         payload: {error: res.data.error},
       });
     }
+  };
+};
+
+export const DeleteContrat = (id) => {
+  return async (dispatch) => {
+    dispatch({
+      type: ContratConstants.DELETE_CONTRAT_REQUEST,
+    });
+    console.log(id)
+    const res = await axios
+      .delete(`/contrat_formations/delete/` + id )
+      .then((res) => {
+        // succes
+        console.log('true' +res.data);
+        dispatch({
+          type: ContratConstants.DELETE_CONTRAT_SUCCESS,
+          payload: { message: res.data },
+        });
+      })
+      .catch((err) => {
+        // echec
+        dispatch({
+          type: ContratConstants.DELETE_CONTRAT_FAILURE,
+          payload: { error: err.response.data },
+        });
+      });
   };
 };

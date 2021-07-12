@@ -1,6 +1,6 @@
 import {authConstants} from '../actions/constants';
 
-const initState = {
+const initialState = {
   token: '',
   user: {
     _id: '',
@@ -14,14 +14,13 @@ const initState = {
   message: '',
 };
 
-export default (state = {initState}, action) => {
-  //console.log(action)
+const AuthReducers = (state = initialState, action) => {
   switch (action.type) {
     case authConstants.LOGIN_REQUEST:
       state = {
         ...state,
         authenticating: true,
-      };
+      }
       break;
     case authConstants.LOGIN_SUCCESS:
       localStorage.setItem('token', action.payload.token);
@@ -53,7 +52,7 @@ export default (state = {initState}, action) => {
       break;
     case authConstants.LOGOUT_SUCCESS:
       state = {
-        ...initState,
+        ...initialState,
       };
       break;
     case authConstants.LOGOUT_FAILURE:
@@ -63,6 +62,9 @@ export default (state = {initState}, action) => {
         loading: false,
       };
       break;
+      default:
+        // do nothing
   }
   return state;
 };
+export default AuthReducers;

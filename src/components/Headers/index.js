@@ -1,54 +1,54 @@
 import React from 'react';
 function Header() {
   return (
-    <header className="header">
-      <div className="header-fixed">
-        <nav className="navbar navbar-expand-lg header-nav">
-          <div className="navbar-header">
+    <header class="header">
+      <div class="header-fixed">
+        <nav class="navbar navbar-expand-lg header-nav">
+          <div class="navbar-header">
             <a id="mobile_btn" href="javascript:void(0);">
-              <span className="bar-icon">
+              <span class="bar-icon">
                 <span />
                 <span />
                 <span />
               </span>
             </a>
-            <a href="/" className="navbar-brand logo">
-              <img src="assets/img/logo.png" className="img-fluid" alt="Logo" />
+            <a href="/" class="navbar-brand logo">
+              <img src="assets/img/logo.png" class="img-fluid" alt="Logo" />
             </a>
           </div>
-          <div className="main-menu-wrapper">
-            <div className="menu-header">
-              <a href="/" className="menu-logo">
+          <div class="main-menu-wrapper">
+            <div class="menu-header">
+              <a href="/" class="menu-logo">
                 <img
                   src="assets/img/logo.png"
-                  className="img-fluid"
+                  class="img-fluid"
                   alt="Logo"
                 />
               </a>
               <a
                 id="menu_close"
-                className="menu-close"
+                class="menu-close"
                 href="javascript:void(0);"
               >
-                <i className="fas fa-times" />
+                <i class="fas fa-times" />
               </a>
             </div>
 
-            <ul className="main-nav">
-              <li className="active">
+            <ul class="main-nav">
+              <li class="active">
                 <a href="/">Home</a>
               </li>
-              <li className="has-submenu">
+              <li class="has-submenu">
                 <a href="/formations">
-                  Courses <i className="fas fa-chevron-down" />
+                  Courses <i class="fas fa-chevron-down" />
                 </a>
-                <ul className="submenu">
+                <ul class="submenu">
                   <li>
                     <a href="dashboard.html">Mentor Dashboard</a>
                   </li>
-                  <li className="has-submenu">
+                  <li class="has-submenu">
                     <a href="blog.html">Blog</a>
-                    <ul className="submenu">
+                    <ul class="submenu">
                       <li>
                         <a href="blog.html">Blog</a>
                       </li>
@@ -56,28 +56,28 @@ function Header() {
                   </li>
                 </ul>
               </li>
-              <li className="has-submenu">
+              <li class="has-submenu">
                 <a href="/formateurs">Trainers</a>
               </li>
-              <li className="has-submenu">
+              <li class="has-submenu">
                 <a href="/centres">Training Centers</a>
               </li>
-              <li className="has-submenu">
+              <li class="has-submenu">
                 <a href="/about">About</a>
               </li>
-              <li className="login-link">
+              <li class="login-link">
                 <a href="/login">Login / Signup</a>
               </li>
             </ul>
           </div>
-          <ul className="nav header-navbar-rht">
-            <li className="nav-item">
-              <a className="nav-link" href="/login">
+          <ul class="nav header-navbar-rht">
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
                 Login
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link header-login" href="/register">
+            <li class="nav-item">
+              <a class="nav-link header-login" href="/register">
                 Register
               </a>
             </li>

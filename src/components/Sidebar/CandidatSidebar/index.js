@@ -15,15 +15,15 @@ function CandidatSidebar() {
   return (
     <div>
     
-    <div className="sidebar" id="sidebar">
-    <div className="sidebar-inner slimscroll">
-      <div id="sidebar-menu" className="sidebar-menu">
+    <div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+      <div id="sidebar-menu" class="sidebar-menu">
         <ul>
-          <li className="menu-title">
+          <li class="menu-title">
             {' '}
             <span>Main</span>
           </li>
-          <li className="active">
+          <li class="active">
             <a href="/candidat/dashboard">
              <FaIcons.FaHome/>
               <span>Dashboard</span>
@@ -41,25 +41,25 @@ function CandidatSidebar() {
               <span>Subscriptions</span>
             </a>
           </li>
-          <li className="submenu">
+          <li class="submenu">
             <a href="categories">
             <FaIcons.FaBook/>
-              <span> Courses</span> <span className="menu-arrow" />
+              <span> Courses</span> <span class="menu-arrow" />
             </a>
           </li>
-          <li className="submenu">
+          <li class="submenu">
             <a href="#">
             <IoIcons.IoIosPaper/>
               <span> training centers</span> 
             </a>
           </li>
-          <li className="submenu">
+          <li class="submenu">
             <a href="#">
             <FaIcons.FaEnvelopeOpenText/>
               <span> Messages</span> 
             </a>
           </li>
-          <li className="menu-title">
+          <li class="menu-title">
             <span>Plus</span>
           </li>
           <li>
