@@ -1,5 +1,5 @@
 import axios from '../helpers';
-import {getUserConstants, updateUserConstants} from './constants';
+import {getUserConstants, updateUserConstants, uploadImage} from './constants';
 
 export const getUserById = (id) => {
   return async (dispatch) => {
@@ -22,3 +22,26 @@ export const getUserById = (id) => {
     }
   };
 };
+
+export const UploadImage = (id,formData , options) => {
+  return async (dispatch) => {
+    dispatch({
+      type: uploadImage.UPLOAD_IMAGE_REQUEST});
+    const res = await axios.post(`/users/upload/`+id ,formData , options);
+    console.log(res.data);
+    if (res.status === 200) {
+      // succes
+      dispatch({
+        type: uploadImage.UPLOAD_IMAGE_SUCCESS,
+        payload: {image: res.data},
+      });
+    } else {
+      // echec
+      dispatch({
+        type: uploadImage.GET_USER_FAILURE,
+        payload: {error: res.data.error}
+      });
+    }
+  };
+};
+

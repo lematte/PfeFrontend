@@ -99,6 +99,7 @@ const Delete = (idf) => {
                         <th>Durrée</th>
                         <th>Description</th>
                         <th>Created Date</th>
+                        <th>Contrat</th>
                         <th class="text-center">Formateur</th>
                         <th class="text-center">Actions</th>
                       </tr>
@@ -125,6 +126,7 @@ const Delete = (idf) => {
                               </td>
                               <td>{f.Description}</td>
                               <td>{f.Date}</td>
+                              <td> Contrat</td>
                               <td class="text-center">
                                 <span class="badge badge-pill bg-success inv-badge">
                                   {f.Formateur.Nom} {f.Formateur.Prenom}
@@ -177,6 +179,7 @@ const Delete = (idf) => {
               <div class="modal-body">
                 <form>
                   <div class="row form-row">
+                    
                     <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <label>Title</label>
@@ -196,6 +199,22 @@ const Delete = (idf) => {
                           defaultValue=""
                         />
                       </div>
+                    </div>
+                    <div class="form-group col-12">
+                      <label>
+                        Type de formation <span class="text-danger">*</span>
+                      </label>
+                      <select
+                        class="form-control select"
+                        name="subcategory"
+                       
+                      >
+                        {types.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                     <div class="col-12">
                       <div class="form-group">

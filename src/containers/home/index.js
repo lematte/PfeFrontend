@@ -1,12 +1,11 @@
-import React ,{useState, useEffect} from 'react';
-import {FaStar} from 'react-icons/fa';
-import {IconContext} from 'react-icons';
-import {useSelector, useDispatch} from 'react-redux';
-import {getFormation} from '../../actions/index';
-import Layout from '../../components/layouts/index';
+import React, { useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
+import { IconContext } from "react-icons";
+import { useSelector, useDispatch } from "react-redux";
+import { getFormation } from "../../actions/index";
+import Layout from "../../components/layouts/index";
 
 function Home() {
-  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFormation());
@@ -14,8 +13,8 @@ function Home() {
   const F = useSelector((state) => state.Formation.Formation);
   const m = useSelector((state) => state.Formation.message);
 
-    return (
-      <div class="main-wrapper">
+  return (
+    <div class="main-wrapper">
       <Layout>
         {/* Home Banner */}
         <section class="section section-search">
@@ -50,7 +49,7 @@ function Home() {
                   <button type="submit" class="btn btn-primary search-btn">
                     <i>
                       <img src="assets/img/search-submit.png" alt />
-                    </i>{' '}
+                    </i>{" "}
                     <span>Search</span>
                   </button>
                 </form>
@@ -136,453 +135,45 @@ function Home() {
             <div class="section-header text-center">
               <h2>Courses</h2>
               <p class="sub-title">
-                Do you want to move on next step? Choose your
-                 course, it will help you to achieve your professional
-                goals.
+                Do you want to move on next step? Choose your course, it will
+                help you to achieve your professional goals.
               </p>
             </div>
             <div class="owl-carousel owl-theme">
-            {/*F.length > 0
-            ? F.map((formation) => (
-              <div class="course-box" key={formation._id}>
-             
-                <div class="product">
-                  <div class="product-img">
-                    <a href="#">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user1.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="#">{formation.Libelle}</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">Digital Marketer</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-               
-              </div>))
-            : 'Aucun Formation dans la base de donnes'*/}
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user2.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">James Amen</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">
-                        UNIX, Calculus, Trigonometry
+              {F.map((formation) => (
+                    <div class="course-box">
+                      <div class="product">
+                        <div class="product-img">
+                          <a href="#">
+                            <img class="img-fluid" alt="rien" src=" " />
+                          </a>
+                        </div>
+                        <div class="product-content">
+                          <h3 class="title">
+                            <a href="#">{formation.Libelle}</a>
+                          </h3>
+                          <div class="author-info">
+                            <div class="author-name">Digital Marketer</div>
+                          </div>
+                          <div class="rating">
+                            <i class="fas fa-star filled" />
+                            <i class="fas fa-star filled" />
+                            <i class="fas fa-star filled" />
+                            <i class="fas fa-star filled" />
+                            <i class="fas fa-star" />
+                            <span class="d-inline-block average-rating">
+                              4.4
+                            </span>
+                          </div>
+                          <div class="author-country">
+                            <p class="mb-0">
+                              <i class="fas fa-map-marker-alt" /> Paris, France
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user3.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">Marvin Downey</h3>
-                    <div class="author-info">
-                      <div class="author-name">ASP.NET,Computer Gaming</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user4.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Betty Hairston</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">Computer Programming</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Jose Anderson</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">Digital Marketer</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star " />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user6.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Aaron Pietrzak</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">
-                        UNIX,Calculus,Trigonometry
-                      </div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user7.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Brian Martinez</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">ASP.NET,Computer Gaming</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user15.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Misty Lundy</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">Computer Programming</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user9.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Vern Campbell</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">Digital Marketer</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user13.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Jessica Fogarty</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">
-                        UNIX,Calculus,Trigonometry
-                      </div>
-                    </div>
-                    <div class="rating">
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star filled" />
-                      <i class="fas fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user11.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Evelyn Stafford</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">ASP.NET,Computer Gaming</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star " />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="course-box">
-                <div class="product">
-                  <div class="product-img">
-                    <a href="profile.html">
-                      <img
-                        class="img-fluid"
-                        alt
-                        src="assets/img/user/user12.jpg"
-                        width={600}
-                        height={300}
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <h3 class="title">
-                      <a href="profile.html">Christopher Carroll</a>
-                    </h3>
-                    <div class="author-info">
-                      <div class="author-name">Computer Programming</div>
-                    </div>
-                    <div class="rating">
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star filled" />
-                      <i class="fa fa-star" />
-                      <span class="d-inline-block average-rating">4.4</span>
-                    </div>
-                    <div class="author-country">
-                      <p class="mb-0">
-                        <i class="fas fa-map-marker-alt" /> Paris, France
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  ))}
             </div>
           </div>
         </section>
@@ -908,10 +499,8 @@ function Home() {
           </div>
         </section>
         {/* /Statistics Section */}
-     </Layout>
-    
+      </Layout>
     </div>
- 
-
-    )
-}export default Home
+  );
+}
+export default Home;

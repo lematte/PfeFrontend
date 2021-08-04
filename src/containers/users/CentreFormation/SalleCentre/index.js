@@ -92,7 +92,9 @@ function SalleCentre() {
               >
                 <FaIcons.FaPlus /> add
               </a>
+              <br/><br/>
             </div>
+            
           </div>
           {/* /Page Header */}
           <div classname="row">

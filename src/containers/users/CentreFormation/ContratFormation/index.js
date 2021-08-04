@@ -15,12 +15,12 @@ var donnees = [];
 
 function ContratFormation() {
   const dispatch = useDispatch();
-  const Centre = JSON.parse(localStorage.getItem("Centre"));
+//  const Centre = JSON.parse(localStorage.getItem("Centre"));
   var formationCenter = JSON.parse(localStorage.getItem("formationCenter"));
 
   useEffect(() => {
-    if (formationCenter.length > 0) {
-      console.log(formationCenter);
+    if (formationCenter && formationCenter.length > 0) {
+     // console.log(formationCenter);
       formationCenter.map((f, index) =>
         dispatch(getContratsByIdFormation(f._id, donnees))
       );
@@ -44,9 +44,19 @@ function ContratFormation() {
     idC = id;
     console.log(idC);
   };
+  console.log(idC);
   const Delete = () => {
     console.log(idC);
     dispatch(DeleteContrat(idC));
+  
+    donnees = []
+    if (formationCenter && formationCenter.length > 0) {
+      // console.log(formationCenter);
+       formationCenter.map((f, index) =>
+         dispatch(getContratsByIdFormation(f._id, donnees))
+       );
+    }
+    window.location.reload();
   };      
 
   var donneslocal = JSON.parse(localStorage.getItem("contratformation"));
@@ -63,9 +73,9 @@ function ContratFormation() {
               <div className="col-sm-12">
                 <p className="page-title"> title</p>
                 <NavLink
-                  className="btn btn-sm  btn-outline-info "
+                  className="btn btn-sm  btn btn-primary "
                   data-toggle="modal"
-                  to="#"
+                  to="/centre_formations/AddContratFormation"
                 >
                   <FaIcons.FaPlus /> add
                 </NavLink>
@@ -114,16 +124,15 @@ function ContratFormation() {
                                                 <i className="fas fa-pencil-alt" />{" "}
                                                 Edit
                                               </NavLink>
-                                              <NavLink
+                                              <a
                                                 className="btn btn-sm bg-danger-light"
                                                 data-toggle="modal"
-                                                to="#delete_modal"
+                                                href="#delete_modal"
                                                 onClick={() => Id(element._id)}
-                                                data-target="#delete_modal"
                                               >
                                                 <i className="far fa-trash-alt" />{" "}
                                                 Delete
-                                              </NavLink>
+                                              </a>
                                             </div>
                                           </td>
 
@@ -140,7 +149,7 @@ function ContratFormation() {
                                               <NavLink
                                                 className="btn btn-sm bg-primary-light"
                                                 data-toggle="modal"
-                                                to="#delete_modal"
+                                                to="/centre_formations/AddContratFormation"
                                               >
                                                 <i className="fas fa-print" />{" "}
                                                 Print
@@ -181,7 +190,6 @@ function ContratFormation() {
                 <h4 class="modal-title">Delete</h4>
                 <p class="mb-4">Are you sure want to delete?</p>
                 <button
-                  type="submit"
                   class="btn btn-primary"
                   onClick={Delete}
                   data-dismiss="modal"

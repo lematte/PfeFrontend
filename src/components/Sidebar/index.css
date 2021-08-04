@@ -1,0 +1,6 @@
+
+.activ:checked {
+    background-color: #1e88e5;
+    color: #ffffff;
+	border-left: 4px solid #fff;
+}

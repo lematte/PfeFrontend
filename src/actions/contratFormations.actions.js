@@ -43,10 +43,10 @@ export const DeleteContrat = (id) => {
       .delete(`/contrat_formations/delete/` + id )
       .then((res) => {
         // succes
-        console.log('true' +res.data);
+        console.log('true' + res.data);
         dispatch({
           type: ContratConstants.DELETE_CONTRAT_SUCCESS,
-          payload: { message: res.data },
+          payload: { message: 'true' },
         });
       })
       .catch((err) => {

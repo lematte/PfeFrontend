@@ -2348,11 +2348,6 @@ body.menu-opened {
 .sidebar-menu li a > .badge {
 	color: #fff;
 }
-.sidebar-menu li.active > a {
-    background-color: #1e88e5;
-    color: #ffffff;
-	border-left: 4px solid #fff;
-}
 .sidebar .sidebar-menu > ul > li:hover > a span {
     margin-left: 15px;
     transition: all 0.2s ease-in-out .1s;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React , {useState} from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-
-import {useSelector, useDispatch} from 'react-redux';
+import '../index.css'
+import { useSelector, useDispatch} from 'react-redux';
 import {signout} from '../../../actions';
 
 function CentreFormationSidebar() {
@@ -12,6 +12,11 @@ function CentreFormationSidebar() {
   const logout = () => {
     dispatch(signout());
   };
+  
+  const [sidebar, setSidebar] = useState(false);
+
+  //const showSidebar = () => setSidebar(!sidebar);
+
   return (
       <div class="sidebar" id="sidebar">
         <div class="sidebar-inner slimscroll">
@@ -27,31 +32,31 @@ function CentreFormationSidebar() {
                   <span>Dashboard</span>
                 </a>
               </li>
-              <li>
+              <li className={sidebar ? 'activ' : ' '}>
                 <a href="/centre_formations/profile">
                   <FaIcons.FaUserAlt />
                   <span>My Profile</span>
                 </a>
               </li>
-              <li>
+              <li class="active">
                 <a href="/centre_formations/contratformation">
                   <FaIcons.FaHandshake />
                   <span>contrat formation</span>
                 </a>
               </li>
-              <li>
+              <li class="active">
                 <a href="/centre_formations/formations">
                   <FaIcons.FaBook />
                   <span> Courses</span>
                 </a>
               </li>
-              <li>
+              <li class="active">
                 <a href="/centre_formations/salles">
                   <FaIcons.FaCube />
                   <span> Rooms </span>
                 </a>
               </li>
-              <li class="submenu">
+              <li class="active">
                 <a href="#">
                   <FaIcons.FaUsers />
                   <span> Trainers</span>
