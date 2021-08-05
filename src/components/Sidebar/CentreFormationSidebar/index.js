@@ -57,7 +57,7 @@ function CentreFormationSidebar() {
                 </a>
               </li>
               <li class="active">
-                <a href="#">
+                <a href="/centre_formations/formateurs">
                   <FaIcons.FaUsers />
                   <span> Trainers</span>
                 </a>

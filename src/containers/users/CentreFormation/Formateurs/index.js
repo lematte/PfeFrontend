@@ -1,39 +1,38 @@
-import React, {useState, useEffect} from 'react';
-import * as FaIcons from 'react-icons/fa';
-import CentreFormationHeader from '../../../../components/Headers/CentreFormationHeader/index';
-import CentreFormationSidebar from '../../../../components/Sidebar/CentreFormationSidebar/index';
-import {useSelector, useDispatch} from 'react-redux';
-import {
-  getSalleByIdCentre,
-  DeleteSalle,
-  ADDSalle,
-  updateSalle,
-  getCentreByIdUser,
-} from '../../../../actions/index';
+import React, { useState, useEffect } from "react";
+import * as FaIcons from "react-icons/fa";
+import CentreFormationHeader from "../../../../components/Headers/CentreFormationHeader/index";
+import CentreFormationSidebar from "../../../../components/Sidebar/CentreFormationSidebar/index";
+import { useSelector, useDispatch } from "react-redux";
+import { getContratsByIdCentre, getFormateur } from "../../../../actions/index";
 
 const currencies = [
   {
-    value: 'libre',
-    label: 'libre',
+    value: "libre",
+    label: "libre",
   },
   {
-    value: 'occupee',
-    label: 'occupée',
+    value: "occupee",
+    label: "occupée",
   },
 ];
 
-function Salle() {
-  const [Libelle, setLibelle] = useState('');
-  const [etat, setEtat] = useState('');
-  const [libelle, setLibell] = useState('');
-  const [Etat, setEta] = useState('');
+function FormateursCentre() {
+  const [Libelle, setLibelle] = useState("");
+  const [etat, setEtat] = useState("");
+  const [libelle, setLibell] = useState("");
+  const [Etat, setEta] = useState("");
 
   const dispatch = useDispatch();
-  const AuthCenter = JSON.parse(localStorage.getItem('Centre'));
+  const AuthCenter = JSON.parse(localStorage.getItem("Centre"));
 
   useEffect(() => {
-    dispatch(getSalleByIdCentre(AuthCenter._id));
+    dispatch(getFormateur());
+    dispatch(getContratsByIdCentre(AuthCenter._id));
   }, []);
+
+  const Formateur = useSelector((state) => state.Formateur.Formateur);
+  const m = useSelector((state) => state.Formateur.message);
+
   const Salles = useSelector((state) => state.salles.salles);
 
   var ids;
@@ -43,8 +42,7 @@ function Salle() {
   };
   const Delete = () => {
     console.log(ids);
-    dispatch(DeleteSalle(ids));
-    dispatch(getSalleByIdCentre(AuthCenter._id));
+    dispatch(getContratsByIdCentre(AuthCenter._id));
   };
 
   var id;
@@ -52,17 +50,6 @@ function Salle() {
     id = Id;
     console.log(id);
   };
-  const Update = () => {
-    console.log(id);
-    console.log(libelle, Etat);
-    const updates = {
-      libelle,
-      Etat,
-    };
-    dispatch(updateSalle(id, updates));
-    dispatch(getSalleByIdCentre(AuthCenter._id));
-  };
-
   const Centre_formation = AuthCenter._id;
 
   const ADD = (e) => {
@@ -72,272 +59,47 @@ function Salle() {
       etat,
       Centre_formation,
     };
-    dispatch(ADDSalle(salle));
-    dispatch(getSalleByIdCentre(AuthCenter._id));
   };
 
   return (
     <div class="main-wrapper">
-    <CentreFormationHeader />
+      <CentreFormationHeader />
       <CentreFormationSidebar />
       <div class="page-wrapper">
         <div class="content container-fluid">
-          {/* Page Header */}
-            <div class="row">
-              <div class="col-sm-9 col-sm-12">
-                
-                <h3 class="page-title">Courses </h3>
-                <a
-                  class="btn btn-sm  btn-outline-info "
-                  data-toggle="modal"
-                  href="#add"
-                >
-                  <FaIcons.FaPlus /> add
-                </a>
-              </div>
-            </div>
-          {/* /Page Header */}
-          <div classname="row">
-            <div classname="col-sm-12">
-              Contents
-              <div class="card">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class=" table table-hover  ">
-                      <thead>
-                        <tr>
-                          <th>Libelle</th>
-                          <th>Etat </th>
-                          {/*
-                      <th>Formation</th>
-                        <th>Date</th>
-                        <th>Heure</th>
-                       */}
-                          <th class="text-center">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Salles.length > 0
-                          ? Salles.map((s) => (
-                              <tr>
-                                <td>
-                                  <h2 class="table-avatar">
-                                    <a href="invoice.html">{s.Libelle}</a>
-                                  </h2>
-                                </td>
-                                <td>{s.etat}</td>
-                                <td class="text-center">
-                                  <div class="actions">
-                                    <a
-                                      class="btn btn-sm bg-success-light mr-2"
-                                      data-toggle="modal"
-                                      href="#editSalle"
-                                      onClick={() => ID(s._id)}
-                                    >
-                                      <i class="fas fa-pencil-alt" /> Edit
-                                    </a>
-                                    <a
-                                      class="btn btn-sm bg-danger-light"
-                                      data-toggle="modal"
-                                      href="#delete_modal"
-                                      onClick={() => IdSalle(s._id)}
-                                    >
-                                      <i class="far fa-trash-alt" /> Delete
-                                    </a>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))
-                          : 'Aucun Salle dans la base de donnes'}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            
-          <div class="modal fade" id="add" aria-hidden="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">ADD</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">×</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="row form-row">
-                      <div class="col-12">
-                        <div class="form-group">
-                          <label>Libelle</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            defaultValue=""
-                            value={Libelle}
-                            onChange={(e) => {
-                              setLibelle(e.target.value);
-                            }}
-                          />
-                        </div>
+          <div class="row row-grid">
+            {Formateur.length > 0
+              ? Formateur.map((formateur, index) => (
+                  <div class="col-12 col-md-6 col-lg-4 d-flex" style={{height:'500px', width:'500px',}}>
+                    <div class="card flex-fill">
+                      <img
+                       src="../../assets/img/user/user.jpg"
+                       alt="User Image"
+                        class="card-img-top img-fluid"
+                        style={{height:'200px'}}
+                      />
+                      <div class="card-header">
+                        <h6 class="card-title mb-0" style={{textAlign:'center'}}>
+                          {formateur.Prenom} {formateur.Nom}
+                        </h6>
+                        {formateur.User.Email}
+                       <p > {formateur.User.Téléphone}</p>
+                       <i class="fas fa-map-marker-alt" style={{ height: '2px'}}/>
+                          {formateur.User.Pays}, {formateur.User.Ville}
                       </div>
-                      <div class="col-12">
-                        <div class="form-group">
-                          <label>Etat</label>
-                          <select
-                            class="form-control select"
-                            name="subcategory"
-                            value={etat}
-                            onChange={(e) => {
-                              setEtat(e.target.value);
-                            }}
-                            SelectProps={{
-                              native: true,
-                            }}
-                          >
-                            {currencies.map((option) => (
-                              <option key={option.value} value={option.value}>
-                                {option.label}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
+                      <div class="card-body">
+                        <p style={{color:"#1e88e5"}}>Etudes_effectuees et  Expériences: </p>{formateur.Etudes_effectuees}
+                        <br/>{formateur.Expériences}
+                        <a class="btn btn-primary" href="#">Go somewhere</a>
                       </div>
                     </div>
-                    <br />
-                    <button
-                      type="submit"
-                      class="btn btn-primary btn-block"
-                      onClick={ADD}
-                      data-dismiss="modal"
-                    >
-                      ADD
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* /ADD Modal */}
-          
-            {/* Edit Details Modal */}
-            <div
-              class="modal fade"
-              id="editSalle"
-              aria-hidden="true"
-              role="dialog"
-            >
-              <div
-                class="modal-dialog modal-dialog-centered"
-                role="document"
-              >
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Edit</h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">×</span>
-                    </button>
                   </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="row form-row">
-                        <div class="col-12">
-                          <div class="form-group">
-                            <label>Libelle</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              value={libelle}
-                              onChange={(e) => {
-                                setLibell(e.target.value);
-                              }}
-                            />
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="form-group">
-                            <label>Etat</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              value={Etat}
-                              onChange={(e) => {
-                                setEta(e.target.value);
-                              }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <button
-                        type="submit"
-                        class="btn btn-primary btn-block"
-                        onClick={Update}
-                        data-dismiss="modal"
-                      >
-                        Save Changes
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* /Edit Details Modal */}
-            {/* Delete Modal */}
-
-            <div
-              class="modal fade"
-              id="delete_modal"
-              aria-hidden="true"
-              role="dialog"
-              // onSubmit={Delete}
-            >
-              <div
-                class="modal-dialog modal-dialog-centered"
-                role="document"
-              >
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <div class="form-content p-2">
-                      <h4 class="modal-title">Delete</h4>
-                      <p class="mb-4">Are you sure want to delete?</p>
-                      <button
-                        type="submit"
-                        class="btn btn-primary"
-                        onClick={Delete}
-                        data-dismiss="modal"
-                      >
-                        Delete{' '}
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-danger"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                ))
+              : "Aucun Formateur dans la base de donnes"}
           </div>
         </div>
       </div>
     </div>
   );
 }
-export default Salle;
+export default FormateursCentre;

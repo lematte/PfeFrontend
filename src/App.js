@@ -16,8 +16,10 @@ import FormationCentreFormation from './containers/users/CentreFormation/Formati
 import ProfileCentreFormation from './containers/users/CentreFormation/ProfileCentre/index'
 import ContratFormation from './containers/users/CentreFormation/ContratFormation/index'
 import AddContratFormation from './containers/users/CentreFormation/ContratFormation/AddContrat'
+import FormateurCentreFormation from "./containers/users/CentreFormation/Formateurs/index";
 
 import SalleCentre from "./containers/users/CentreFormation/SalleCentre";
+
 import Dashboarcandidat from './containers/users/candidat/index'
 import CandidatProfile from './containers/users/candidat/CandidatProfile/index'
 import Subscriptions from "./containers/users/candidat/subscriptions";
@@ -51,7 +53,8 @@ function App() {
           <Route path="/centre_formations/salles" exact component={SalleCentre} />
           <Route path="/centre_formations/contratformation" exact component={ContratFormation} />
           <Route path="/centre_formations/AddContratFormation" exact component={AddContratFormation} />
-          <Route path="/centre_formations/Profile" exact component={ProfileCentreFormation} />
+          <Route path="/centre_formations/profile" exact component={ProfileCentreFormation} />
+          <Route path="/centre_formations/formateurs" exact component={FormateurCentreFormation}/>
 
           <Route path="/candidat/dashboard" exact component={Dashboarcandidat} />
           <Route path="/candidat/profile" exact component={CandidatProfile} />
