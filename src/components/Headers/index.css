@@ -1,0 +1,14 @@
+.main-nav .has-submenu > a:focus {
+    color: #1879cd;
+    transition: all 0.01s ease 0s;
+}
+.main-nav .has-submenu .submenu li > a:focus {
+    color: #1879cd;
+}
+.main-nav .has-submenu > a:hover {
+    color: #1879cd;
+    transition: all 0.01s ease 0s;
+}
+.main-nav .has-submenu .submenu li > a:hover {
+    color: #1879cd;
+}

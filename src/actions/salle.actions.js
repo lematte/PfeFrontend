@@ -14,6 +14,8 @@ export const getSalleByIdCentre = (id) => {
       const res = await axios.get(`/salles/getByIdCentre/`+ id);
       console.log(res.data);
       if (res.status === 200) {
+        localStorage.setItem('sallesCentre', JSON.stringify(res.data));
+
         // succes
         dispatch({
           type: SallegetByIdCentreConstants.GETByIdCentre_SALLE_SUCCESS,

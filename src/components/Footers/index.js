@@ -3,48 +3,48 @@ import React from 'react';
 const Footer = () => {
   return (
     <>
-      <footer class="footer ">
+      <footer className="footer ">
         {/* Footer Top */}
-        <div class="footer-top">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-3 col-md-6">
+        <div className="footer-top">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div class="footer-widget footer-about">
-                  <div class="footer-logo">
-                    <img src="assets/img/logo.png" alt="logo" />
+                <div className="footer-widget footer-about">
+                  <div className="footer-logo">
+                    <img src="assets/img/LogoMakr-3.png" alt="logo" />
                   </div>
-                  <div class="footer-about-content">
+                  <div className="footer-about-content">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua.{' '}
                     </p>
-                    <div class="social-icon">
+                    <div className="social-icon">
                       <ul>
                         <li>
                           <a href="#" target="_blank">
-                            <i class="fab fa-facebook-f" />{' '}
+                            <i className="fab fa-facebook-f" />{' '}
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i class="fab fa-twitter" />{' '}
+                            <i className="fab fa-twitter" />{' '}
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i class="fab fa-linkedin-in" />
+                            <i className="fab fa-linkedin-in" />
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i class="fab fa-instagram" />
+                            <i className="fab fa-instagram" />
                           </a>
                         </li>
                         <li>
                           <a href="#" target="_blank">
-                            <i class="fab fa-dribbble" />{' '}
+                            <i className="fab fa-dribbble" />{' '}
                           </a>
                         </li>
                       </ul>
@@ -53,10 +53,10 @@ const Footer = () => {
                 </div>
                 {/* /Footer Widget */}
               </div>
-              <div class="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div class="footer-widget footer-menu">
-                  <h2 class="footer-title">Categories</h2>
+                <div className="footer-widget footer-menu">
+                  <h2 className="footer-title">Categories</h2>
                   <ul>
                     <li>
                       <a href="search.html">Search Mentors</a>
@@ -77,10 +77,10 @@ const Footer = () => {
                 </div>
                 {/* /Footer Widget */}
               </div>
-              <div class="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div class="footer-widget footer-menu">
-                  <h2 class="footer-title">For Mentors</h2>
+                <div className="footer-widget footer-menu">
+                  <h2 className="footer-title">For Mentors</h2>
                   <ul>
                     <li>
                       <a href="appointments.html">Appointments</a>
@@ -89,10 +89,10 @@ const Footer = () => {
                       <a href="chat.html">Chat</a>
                     </li>
                     <li>
-                      <a href="login.html">Login</a>
+                      <a href="/login">Login</a>
                     </li>
                     <li>
-                      <a href="register.html">Register</a>
+                      <a href="/register">Register</a>
                     </li>
                     <li>
                       <a href="dashboard.html">Mentor Dashboard</a>
@@ -101,14 +101,14 @@ const Footer = () => {
                 </div>
                 {/* /Footer Widget */}
               </div>
-              <div class="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6">
                 {/* Footer Widget */}
-                <div class="footer-widget footer-contact">
-                  <h2 class="footer-title">Contact Us</h2>
-                  <div class="footer-contact-info">
-                    <div class="footer-address">
+                <div className="footer-widget footer-contact">
+                  <h2 className="footer-title">Contact Us</h2>
+                  <div className="footer-contact-info">
+                    <div className="footer-address">
                       <span>
-                        <i class="fas fa-map-marker-alt" />
+                        <i className="fas fa-map-marker-alt" />
                       </span>
                       <p>
                         {' '}
@@ -118,11 +118,11 @@ const Footer = () => {
                     </div>
                     <br/>
                     <p>
-                      <i class="fas fa-phone-alt" />
+                      <i className="fas fa-phone-alt" />
                       +216 500 000 00
                     </p>
-                    <p class="mb-0">
-                      <i class="fas fa-envelope" />
+                    <p className="mb-0">
+                      <i className="fas fa-envelope" />
                       Training4All@example.com
                     </p>
                   </div>
@@ -134,14 +134,14 @@ const Footer = () => {
         </div>
         {/* /Footer Top */}
         {/* Footer Bottom */}
-        <div class="footer-bottom">
-          <div class="container-fluid">
+        <div className="footer-bottom">
+          <div className="container-fluid">
             {/* Copyright */}
-            <div class="copyright">
-              <div class="row">
-                <div class="col-12 text-center">
-                  <div class="copyright-text">
-                    <p class="mb-0">
+            <div className="copyright">
+              <div className="row">
+                <div className="col-12 text-center">
+                  <div className="copyright-text">
+                    <p className="mb-0">
                       © 2020 Training4All. All rights reserved.
                     </p>
                   </div>

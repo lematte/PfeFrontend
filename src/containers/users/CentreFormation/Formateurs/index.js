@@ -70,7 +70,7 @@ function FormateursCentre() {
           <div class="row row-grid">
             {Formateur.length > 0
               ? Formateur.map((formateur, index) => (
-                  <div class="col-12 col-md-6 col-lg-4 d-flex" style={{height:'500px', width:'500px',}}>
+                  <div class="col-12 col-md-6 col-lg-3 d-flex" style={{height:'500px', width:'500px',}}>
                     <div class="card flex-fill">
                       <img
                        src="../../assets/img/user/user.jpg"
@@ -79,18 +79,17 @@ function FormateursCentre() {
                         style={{height:'200px'}}
                       />
                       <div class="card-header">
-                        <h6 class="card-title mb-0" style={{textAlign:'center'}}>
+                        <h6 class="card-title mb-0">
                           {formateur.Prenom} {formateur.Nom}
                         </h6>
                         {formateur.User.Email}
                        <p > {formateur.User.Téléphone}</p>
-                       <i class="fas fa-map-marker-alt" style={{ height: '2px'}}/>
                           {formateur.User.Pays}, {formateur.User.Ville}
                       </div>
                       <div class="card-body">
                         <p style={{color:"#1e88e5"}}>Etudes_effectuees et  Expériences: </p>{formateur.Etudes_effectuees}
                         <br/>{formateur.Expériences}
-                        <a class="btn btn-primary" href="#">Go somewhere</a>
+                        <a class="btn btn-primary" href="#">contacter</a>
                       </div>
                     </div>
                   </div>

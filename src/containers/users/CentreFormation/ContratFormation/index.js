@@ -15,18 +15,18 @@ var donnees = [];
 
 function ContratFormation() {
   const dispatch = useDispatch();
-//  const Centre = JSON.parse(localStorage.getItem("Centre"));
+  //  const Centre = JSON.parse(localStorage.getItem("Centre"));
   var formationCenter = JSON.parse(localStorage.getItem("formationCenter"));
 
   useEffect(() => {
     if (formationCenter && formationCenter.length > 0) {
-     // console.log(formationCenter);
+      // console.log(formationCenter);
       formationCenter.map((f, index) =>
         dispatch(getContratsByIdFormation(f._id, donnees))
       );
     }
   }, []);
-/*
+  /*
   const formation = useSelector((state) => state.Formation.formations);
   useEffect(() => {
     if (formation.length > 0) {
@@ -36,8 +36,8 @@ function ContratFormation() {
       );
     }
   }, []);
-*/  
-//var donneslocal = JSON.parse(localStorage.getItem("contratformation"));
+*/
+  //var donneslocal = JSON.parse(localStorage.getItem("contratformation"));
 
   var idC;
   const Id = (id) => {
@@ -48,19 +48,19 @@ function ContratFormation() {
   const Delete = () => {
     console.log(idC);
     dispatch(DeleteContrat(idC));
-  
-    donnees = []
+
+    donnees = [];
     if (formationCenter && formationCenter.length > 0) {
       // console.log(formationCenter);
-       formationCenter.map((f, index) =>
-         dispatch(getContratsByIdFormation(f._id, donnees))
-       );
+      formationCenter.map((f, index) =>
+        dispatch(getContratsByIdFormation(f._id, donnees))
+      );
     }
     window.location.reload();
-  };      
+  };
 
   var donneslocal = JSON.parse(localStorage.getItem("contratformation"));
-  console.log(donneslocal)
+  console.log(donneslocal);
   return (
     <div class="main-wrapper">
       <CentreFormationHeader />
@@ -71,7 +71,8 @@ function ContratFormation() {
           <div className="page-header">
             <div className="row">
               <div className="col-sm-12">
-                <p className="page-title"> title</p>
+                {/*  <p className="page-title"> title</p>
+     
                 <NavLink
                   className="btn btn-sm  btn btn-primary "
                   data-toggle="modal"
@@ -79,6 +80,7 @@ function ContratFormation() {
                 >
                   <FaIcons.FaPlus /> add
                 </NavLink>
+           */}
               </div>
             </div>
           </div>

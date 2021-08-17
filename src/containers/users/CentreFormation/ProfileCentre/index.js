@@ -51,7 +51,9 @@ function Profile() {
     };
     console.log(IDcardnumber);
     dispatch(updateCenter(AuthCenter._id, Centre));
-    // dispatch(getCentreByIdUser(AuthUser._id));
+    dispatch(getCentreByIdUser(AuthUser._id));
+    //        window.location.reload()
+
   };
 
   //photo

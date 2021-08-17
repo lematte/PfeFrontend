@@ -20,6 +20,18 @@ const FormateurReducer = (state = initialState, action) => {
         error: action.payload.error,
       };
       break;
+      case formateurConstants.GET_BY_PRENOM_FORMATEUR_SUCCESS:
+      state = {
+        ...state,
+        Formateur: action.payload.formateur,
+      };
+      break;
+    case formateurConstants.GET_BY_PRENOM_FORMATEUR_FAILURE:
+      state = {
+        ...state,
+        error: action.payload.error,
+      };
+      break;
 
     default:
       console.log('default');

@@ -1,6 +1,6 @@
 import {authConstants} from './constants';
 import axios from '../helpers';
-import {getCandidatByIdUser,getCentreByIdUser} from './index';
+import {getCandidatByIdUser,getCentreByIdUser,getFormateur} from './index';
 
 export const login = (user) => {
   console.log(user);
@@ -11,10 +11,13 @@ export const login = (user) => {
     const res = await axios
       .post(`/login`, user)
       .then((res) => {
+        console.log(res)
         const {token, user} = res.data;
+       
+
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
-        
+        dispatch(getFormateur());
         if (user.role === 'candidat') {
           dispatch(getCandidatByIdUser(user._id));
         }else if (user.role === 'centre_formation') {

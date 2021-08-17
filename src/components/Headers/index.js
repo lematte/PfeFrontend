@@ -1,54 +1,57 @@
 import React from 'react';
+import './index.css'
 function Header() {
   return (
-    <header class="header">
-      <div class="header-fixed">
-        <nav class="navbar navbar-expand-lg header-nav">
-          <div class="navbar-header">
+    <header className="header">
+      <div className="header-fixed">
+        <nav className="navbar navbar-expand-lg header-nav">
+          <div className="navbar-header">
             <a id="mobile_btn" href="javascript:void(0);">
-              <span class="bar-icon">
+              <span className="bar-icon">
                 <span />
                 <span />
                 <span />
               </span>
             </a>
-            <a href="/" class="navbar-brand logo">
-              <img src="assets/img/logo.png" class="img-fluid" alt="Logo" />
+            <a href="/" className="navbar-brand logo">
+              <img src="assets/img/LogoMakr-3.png" className="img-fluid" alt="Logo" 
+              style={{width: '160px' ,height: '32.54px' }}
+              />
             </a>
           </div>
-          <div class="main-menu-wrapper">
-            <div class="menu-header">
-              <a href="/" class="menu-logo">
+          <div className="main-menu-wrapper">
+            <div className="menu-header">
+              <a href="/" className="menu-logo">
                 <img
-                  src="assets/img/logo.png"
-                  class="img-fluid"
+                  src="assets/img/LogoMakr-4.png"
+                  className="img-fluid"
                   alt="Logo"
                 />
               </a>
               <a
                 id="menu_close"
-                class="menu-close"
+                className="menu-close"
                 href="javascript:void(0);"
               >
-                <i class="fas fa-times" />
+                <i className="fas fa-times" />
               </a>
             </div>
 
-            <ul class="main-nav">
-              <li class="active">
+            <ul className="main-nav">
+              <li className="has-submenu">
                 <a href="/">Home</a>
               </li>
-              <li class="has-submenu">
+              <li className="has-submenu">
                 <a href="/formations">
-                  Courses <i class="fas fa-chevron-down" />
+                  Courses <i className="fas fa-chevron-down" />
                 </a>
-                <ul class="submenu">
+                <ul className="submenu">
                   <li>
                     <a href="dashboard.html">Mentor Dashboard</a>
                   </li>
-                  <li class="has-submenu">
+                  <li className="has-submenu">
                     <a href="blog.html">Blog</a>
-                    <ul class="submenu">
+                    <ul className="submenu">
                       <li>
                         <a href="blog.html">Blog</a>
                       </li>
@@ -56,28 +59,28 @@ function Header() {
                   </li>
                 </ul>
               </li>
-              <li class="has-submenu">
+              <li className="has-submenu">
                 <a href="/formateurs">Trainers</a>
               </li>
-              <li class="has-submenu">
+              <li className="has-submenu">
                 <a href="/centres">Training Centers</a>
               </li>
-              <li class="has-submenu">
+              <li className="has-submenu">
                 <a href="/about">About</a>
               </li>
-              <li class="login-link">
+              <li className="login-link">
                 <a href="/login">Login / Signup</a>
               </li>
             </ul>
           </div>
-          <ul class="nav header-navbar-rht">
-            <li class="nav-item">
-              <a class="nav-link" href="/login">
+          <ul className="nav header-navbar-rht">
+            <li className="nav-item">
+              <a className="nav-link" href="/login">
                 Login
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link header-login" href="/register">
+            <li className="nav-item">
+              <a className="nav-link header-login" href="/register">
                 Register
               </a>
             </li>

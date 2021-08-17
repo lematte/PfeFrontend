@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
-import CentreFormationHeader from "../../../../components/Headers/CentreFormationHeader/index";
-import CentreFormationSidebar from "../../../../components/Sidebar/CentreFormationSidebar/index";
+import AdminHeader from "../../../../components/Headers/AdminHeader/index";
+import AdminSidebar from "../../../../components/Sidebar/AdminSidebar";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getSalleByIdCentre,
-  DeleteSalle,
-  ADDSalle,
-  updateSalle,
-  getCentreByIdUser,
+  getCategoriesByLibelle,
+  getCategories,
+  ADDCategorie,
+  updatecategorie,
+  DeleteCategorie,
 } from "../../../../actions/index";
 
-const currencies = [
+/*const currencies = [
   {
     value: "libre",
     label: "libre",
@@ -20,65 +20,60 @@ const currencies = [
     value: "occupee",
     label: "occupée",
   },
-];
-function SalleCentre() {
-  const [Libelle, setLibelle] = useState("");
-  const [etat, setEtat] = useState("libre");
-  const [libelle, setLibell] = useState("");
-  const [Etat, setEta] = useState("");
+];*/
+
+function Categories() {
+  const [libelle, setLibelle] = useState("");
+  const [type, setType] = useState("");
 
   const dispatch = useDispatch();
-  const AuthCenter = JSON.parse(localStorage.getItem("Centre"));
 
   useEffect(() => {
-    dispatch(getSalleByIdCentre(AuthCenter._id));
+    dispatch(getCategories());
   }, []);
-  const Salles = useSelector((state) => state.salles.salles);
+  const categories = useSelector((state) => state.categories.categories);
+  console.log("categories" + categories);
 
-  var ids;
-  const IdSalle = (id) => {
-    ids = id;
-    console.log(ids);
+  var idC;
+  const IdCategorie = (id) => {
+    idC = id;
+    console.log(idC);
   };
   const Delete = () => {
-    console.log(ids);
-    dispatch(DeleteSalle(ids));
-    dispatch(getSalleByIdCentre(AuthCenter._id));
+    console.log(idC);
+    dispatch(DeleteCategorie(idC));
+    dispatch(getCategories());
   };
 
   var id;
-  const ID = (Id) => {
+  /*const ID = (Id) => {
     id = Id;
     console.log(id);
-  };
+  };*/
   const Update = () => {
-    console.log(id);
-    console.log(libelle, Etat);
+    console.log(idC);
+    console.log(libelle, type);
     const updates = {
       libelle,
-      Etat,
+      type,
     };
-    dispatch(updateSalle(id, updates));
-    dispatch(getSalleByIdCentre(AuthCenter._id));
+    dispatch(updatecategorie(idC, updates));
+    dispatch(getCategories());
   };
 
-  const Centre_formation = AuthCenter._id;
-
   const ADD = (e) => {
-    //  e.preventDefault();
-    const salle = {
-      Libelle,
-      etat,
-      Centre_formation,
+    const categorie = {
+      libelle,
+      type,
     };
-    dispatch(ADDSalle(salle));
-    dispatch(getSalleByIdCentre(AuthCenter._id));
+    dispatch(ADDCategorie(categorie));
+    dispatch(getCategories());
   };
 
   return (
     <div class="main-wrapper">
-      <CentreFormationHeader />
-      <CentreFormationSidebar />
+      <AdminHeader />
+      <AdminSidebar />
       <div class="page-wrapper">
         <div class="content container-fluid">
           {/* Page Header */}
@@ -86,7 +81,7 @@ function SalleCentre() {
             <div class="col-sm-9 col-sm-12">
               <h3 class="page-title">Courses </h3>
               <a
-                class="btn btn-sm  btn btn-primary"
+                class="btn btn-sm  btn-outline-info "
                 data-toggle="modal"
                 href="#add"
               >
@@ -105,33 +100,32 @@ function SalleCentre() {
                     <table class=" table table-hover  ">
                       <thead>
                         <tr>
+                          <th>Nombre</th>
                           <th>Libelle</th>
-                          <th>Etat </th>
-                          {/*
-                      <th>Formation</th>
-                        <th>Date</th>
-                        <th>Heure</th>
-                       */}
+                          <th>Type </th>
                           <th class="text-center">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {Salles && Salles.length > 0
-                          ? Salles.map((s) => (
+                        {categories && categories.length > 0
+                          ? categories.map((categorie, index) => (
                               <tr>
+                                <td>{index + 1}</td>
                                 <td>
                                   <h2 class="table-avatar">
-                                    <a href="invoice.html">{s.Libelle}</a>
+                                    <a href="invoice.html">
+                                      {categorie.libelle}
+                                    </a>
                                   </h2>
                                 </td>
-                                <td>{s.etat}</td>
+                                <td>{categorie.type}</td>
                                 <td class="text-center">
                                   <div class="actions">
                                     <a
                                       class="btn btn-sm bg-success-light mr-2"
                                       data-toggle="modal"
-                                      href="#editSalle"
-                                      onClick={() => ID(s._id)}
+                                      href="#editCategorie"
+                                      onClick={() => IdCategorie(categorie._id)}
                                     >
                                       <i class="fas fa-pencil-alt" /> Edit
                                     </a>
@@ -139,7 +133,7 @@ function SalleCentre() {
                                       class="btn btn-sm bg-danger-light"
                                       data-toggle="modal"
                                       href="#delete_modal"
-                                      onClick={() => IdSalle(s._id)}
+                                      onClick={() => IdCategorie(categorie._id)}
                                     >
                                       <i class="far fa-trash-alt" /> Delete
                                     </a>
@@ -147,7 +141,7 @@ function SalleCentre() {
                                 </td>
                               </tr>
                             ))
-                          : " Aucune Salle dans la base de données"}
+                          : "Aucun categories dans la base de donnes"}
                       </tbody>
                     </table>
                   </div>
@@ -182,27 +176,26 @@ function SalleCentre() {
                         type="text"
                         class="form-control"
                         defaultValue=""
-                        value={Libelle}
+                        value={libelle}
                         onChange={(e) => {
                           setLibelle(e.target.value);
                         }}
                       />
                     </div>
                   </div>
-                  {/*
-                        <div class="col-12">
-                          <div class="form-group">
-                            <label>Etat</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                value={etat}
-                                onChange={(e) => {
-                                 setEtat(e.target.value);
-                                }}
-                              />
-                          </div>
-                        </div> */}
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>type</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value={type}
+                        onChange={(e) => {
+                          setType(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <br />
                 <button
@@ -221,7 +214,7 @@ function SalleCentre() {
       {/* /ADD Modal */}
 
       {/* Edit Details Modal */}
-      <div class="modal fade" id="editSalle" aria-hidden="true" role="dialog">
+      <div class="modal fade" id="editCategorie" aria-hidden="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -246,7 +239,7 @@ function SalleCentre() {
                         class="form-control"
                         value={libelle}
                         onChange={(e) => {
-                          setLibell(e.target.value);
+                          setLibelle(e.target.value);
                         }}
                       />
                     </div>
@@ -254,27 +247,14 @@ function SalleCentre() {
                   <div class="col-12">
                     <div class="form-group">
                       <label>Etat</label>
-                      {/*  <input
+                      <input
                         type="text"
                         class="form-control"
-                        value={Etat}
+                        value={type}
                         onChange={(e) => {
-                          setEta(e.target.value);
+                          setType(e.target.value);
                         }}
-                      /> */}
-                      <select
-                        class="form-control select"
-                        value={Etat}
-                        onChange={(e) => {
-                          setEta(e.target.value);
-                        }}
-                      >
-                        {currencies.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
+                      />
                     </div>
                   </div>
                 </div>
@@ -330,4 +310,4 @@ function SalleCentre() {
     </div>
   );
 }
-export default SalleCentre;
+export default Categories;

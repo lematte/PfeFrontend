@@ -7,7 +7,12 @@ import Formateurs from "./containers/formateurs/index";
 import Formateur from "./containers/formateur/index";
 import CentresList from "./containers/CentresList/index";
 import Formations from './containers/formations/index'
+import SAllFormation from './containers/formations/AllFormation'
+import DetailsFormation from './containers/formations/Formation-details'
 import DashboardAdmin from "./containers/users/admin";
+import CategoriesAdmin from "./containers/users/admin/categories";
+
+
 import SettingSite from "./containers/users/admin/settingSite";
 import Profile from './containers/users/admin/profile/index'
 import Allformations from './containers/users/admin/formations/index'
@@ -40,13 +45,18 @@ function App() {
           <Route path="/formateurs" exact component={Formateurs} />
           <Route path="/formateur" exact component={Formateur} />
           <Route path="/centres" exact component={CentresList} />
-          <Route path="/formations" exact component={Formations} />
+          <Route path="/formations-search" exact component={Formations} />
+          <Route path="/formations" exact component={SAllFormation} />
+          <Route path="/formation-details-:idformation" exact component={DetailsFormation} />
+
+          
 
           
           <Route path="/admin/dashboard" exact component={DashboardAdmin} />
           <Route path="/admin/settings" exact component={SettingSite} />
           <Route path="/admin/Profile" exact component={Profile} />
           <Route path="/admin/formations" exact component={Allformations} />
+          <Route path="/admin/categories" exact component={CategoriesAdmin} />
 
           <Route path="/centre_formations/dashboard" exact component={CentreFormation} />
           <Route path="/centre_formations/formations" exact component={FormationCentreFormation} />

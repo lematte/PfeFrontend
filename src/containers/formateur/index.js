@@ -1,30 +1,33 @@
-import React from 'react';
-import Layout from '../../components/layouts';
+import React from "react";
+import Layout from "../../components/layouts";
+
 function Formateur() {
   return (
     <div>
       <div class="main-wrapper">
-        {' '}
+        {" "}
         <Layout>
-	{/* Breadcrumb */}
-<div class="breadcrumb-bar">
-  <div class="container-fluid">
-    <div class="row align-items-center">
-      <div class="col-md-12 col-12">
-        <nav aria-label="breadcrumb" class="page-breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Mentor Profile</li>
-          </ol>
-        </nav>
-        <h2 class="breadcrumb-title">Mentor Profile</h2>
-      </div>
-    </div>
-  </div>
-</div>
-{/* /Breadcrumb */}
-
-
+          {/* Breadcrumb */}
+          <div class="breadcrumb-bar">
+            <div class="container-fluid">
+              <div class="row align-items-center">
+                <div class="col-md-12 col-12">
+                  <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="index.html">Home</a>
+                      </li>
+                      <li class="breadcrumb-item active" aria-current="page">
+                        Mentor Profile
+                      </li>
+                    </ol>
+                  </nav>
+                  <h2 class="breadcrumb-title">Mentor Profile</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* /Breadcrumb */}
 
           {/* Page Content */}
           <div class="content">
@@ -47,20 +50,16 @@ function Formateur() {
                             </div>
                             <div class="mentor-details m-0">
                               <p class="user-location m-0">
-                                <i class="fas fa-map-marker-alt" /> Tamil
-                                Nadu, India
+                                <i class="fas fa-map-marker-alt" /> Tamil Nadu,
+                                India
                               </p>
                             </div>
                           </div>
                           <div class="user-info-cont">
                             <h4 class="usr-name">Jonathan Doe</h4>
-                            <p class="mentor-type">
-                              English Literature (M.A)
-                            </p>
+                            <p class="mentor-type">English Literature (M.A)</p>
                             <div class="mentor-action">
-                              <p class="mentor-type social-title">
-                                Contact Me
-                              </p>
+                              <p class="mentor-type social-title">Contact Me</p>
                               <a href="javascript:void(0)" class="btn-blue">
                                 <i class="fas fa-comments" />
                               </a>
@@ -137,9 +136,7 @@ function Formateur() {
                               <div class="experience-content">
                                 <div class="timeline-content">
                                   <span>Date of Birth</span>
-                                  <div class="row-result">
-                                    01 - 02 - 2000
-                                  </div>
+                                  <div class="row-result">01 - 02 - 2000</div>
                                 </div>
                               </div>
                             </li>

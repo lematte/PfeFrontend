@@ -6,7 +6,9 @@ import {
 } from "../actions/constants";
 const initialState = {
   Formation: [],
+  RRF:[],
   formations: [],
+  loading: false,
   message: null,
   error: null,
 };
@@ -18,18 +20,21 @@ const FormationReducer = (state = initialState, action) => {
         ...state,
         Formation: action.payload.Formation,
         message: "ok ",
+        loading: false,
       };
       break;
     case formationConstants.GET_FORMATION_FAILURE:
       state = {
         ...state,
         error: action.payload.error,
+        loading: false,
       };
       break;
     case formationgetByIdCentreConstants.GETByIdCentre_FORMATION_SUCCESS:
       state = {
         ...state,
         formations: action.payload.formations,
+        loading: false,
         message: " ",
       };
       break;
@@ -66,6 +71,21 @@ const FormationReducer = (state = initialState, action) => {
       state = {
         ...state,
         error: action.payload.error,
+      };
+      break;
+      case formationConstants.GET_FORMATION_BY_Name_SUCCESS:
+      state = {
+        ...state,
+        Formation: action.payload.RRFormation,
+        loading: true,
+        message: "ok ",
+      };
+      break;
+    case formationConstants.GET_FORMATION_BY_Name_FAILURE:
+      state = {
+        ...state,
+        error: action.payload.error,
+        loading: false,
       };
       break;
     default:

@@ -2,13 +2,27 @@ import React, {useState, useEffect} from 'react';
 import {FaStar} from 'react-icons/fa';
 import {IconContext} from 'react-icons';
 import {useSelector, useDispatch} from 'react-redux';
-import {getFormateur} from '../../actions/index';
+import {getFormateur,getFormateurByName} from '../../actions/index';
 import Layout from '../../components/layouts';
 function Formateurs() {
   const dispatch = useDispatch();
+  const [Prenom , setPrenom] = useState();
+
   useEffect(() => {
     dispatch(getFormateur());
   }, []);
+  let FormateurByName =null
+
+  console.log(Prenom)
+  const searchAgain = () => {
+    if (Prenom == "") {
+      FormateurByName = dispatch(getFormateur());
+    } else {
+      FormateurByName = dispatch(getFormateurByName(Prenom));
+    }
+  };
+  console.log(Prenom)
+
   const Formateur = useSelector((state) => state.Formateur.Formateur);
   const m = useSelector((state) => state.Formateur.message);
 
@@ -30,6 +44,10 @@ function Formateurs() {
                         type="text"
                         class="form-control"
                         placeholder="Search"
+                        onKeyUp={searchAgain}
+                        value={Prenom}
+                        onChange={(e) => setPrenom(e.target.value)}
+                    
                       />
                     </div>
                   </div>

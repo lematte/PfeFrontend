@@ -3,14 +3,43 @@ import { useParams } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import CentreFormationHeader from "../../../../components/Headers/CentreFormationHeader/index";
 import CentreFormationSidebar from "../../../../components/Sidebar/CentreFormationSidebar/index";
-
 import { useSelector, useDispatch } from "react-redux";
+
 import {
   getByIdCentre,
   getCentreByIdUser,
   DeleteFormation,
   ADDFormation,
+  getSalleByIdCentre,
+  getFormateur
 } from "../../../../actions/index";
+
+var sallesCentre = JSON.parse(localStorage.getItem("sallesCentre"));
+
+const salles = [
+  sallesCentre && sallesCentre.length > 0
+    ? sallesCentre.map((s, index) => ({
+        value: s._id,
+        label: s.Libelle,
+      }))
+    :{label:  "aucun Salle"}
+];
+
+var formatr = JSON.parse(localStorage.getItem("formateurs"));
+const formateurs = [
+  formatr && formatr.length > 0
+    ? formatr.map((formateur, index) => ({
+        value: formateur._id,
+        label:
+          formateur.Nom +
+          " " +
+          formateur.Prenom +
+          " (" +
+          formateur.User.Email +
+          ")",
+      }))
+    : "aucun formateur",
+];
 
 const types = [
   {
@@ -22,7 +51,6 @@ const types = [
     label: "en ligne",
   },
 ];
-var formateurs = [];
 
 function FormationCentreFormation() {
   const [Type, setType] = useState("presentielle");
@@ -38,22 +66,50 @@ function FormationCentreFormation() {
   const [Prix, setPrix] = useState("");
   const [Statut, setStatut] = useState("");
   const [Formateur, setFormateur] = useState("");
+  const handleChangeFormateur = (event) => {
+    setFormateur(event.target.value);
+  };
+  console.log(Formateur)
   const [Examen, setExamen] = useState("");
   const [Contrat, setContrat] = useState("");
-
+  const [idSalle, setsalle] = useState("");
+ /* const handleChangesalle = (event) => {
+    setsalle(event.target.value);
+  };*/
+  console.log(idSalle)
+  //setsalle('   ')
   const dispatch = useDispatch();
-  const AuthUser = JSON.parse(localStorage.getItem("user"));
+  //const AuthUser = JSON.parse(localStorage.getItem("user"));
   const AuthCenter = JSON.parse(localStorage.getItem("Centre"));
   useEffect(() => {
-   // dispatch(getCentreByIdUser(AuthUser._id));
+    // dispatch(getCentreByIdUser(AuthUser._id));
     dispatch(getByIdCentre(AuthCenter._id));
+    dispatch(getSalleByIdCentre(AuthCenter._id));
+    dispatch(getFormateur());
   }, []);
-  const cntr = useSelector((state) => state.centre_formation.centre);
+  //const FORMATEURS = useSelector((state) => state.Formateur.Formateur);
+
+  // if (FORMATEURS.length > 0 ) {
+  //   FORMATEURS.map((formateur, index) =>(
+  /*formateurs = [
+    FORMATEURS && FORMATEURS.length > 0
+      ? FORMATEURS.map((formateur, index) => ({
+          value: formateur._id,
+          label: formateur.Nom + " " + formateur.Prenom,
+        }))
+      : "aucun formateur",
+  ];*/
+  console.log(formateurs[0]);
+  console.log(salles);
+
+  //const cntr = useSelector((state) => state.centre_formation.centre);
+  //const salles = useSelector((state) => state.salles.salles);
+  //donnees = salles;
 
   const formation = useSelector((state) => state.Formation.formations);
   const m = useSelector((state) => state.Formation.message);
-  console.log(formation);
-  console.log(AuthCenter);
+  //console.log(formation);
+  //console.log(donnees);
 
   let idf;
   const IdDelete = (id) => {
@@ -66,9 +122,11 @@ function FormationCentreFormation() {
     dispatch(DeleteFormation(idf));
     dispatch(getByIdCentre(AuthCenter._id));
   };
+  const Centre_formation = AuthCenter._id
+
   const ADD = (e) => {
     //  e.preventDefault();
-    const frm = {
+    const form = {
       Libelle,
       Type,
       Durrée,
@@ -76,9 +134,11 @@ function FormationCentreFormation() {
       Heure,
       Description,
       Prix,
-      Centre_formation: AuthCenter._id,
+      Centre_formation,
+      Formateur,
+      idSalle,
     };
-    dispatch(ADDFormation(frm));
+    dispatch(ADDFormation(form));
     dispatch(getByIdCentre(AuthCenter._id));
   };
 
@@ -104,7 +164,7 @@ const Delete = (idf) => {
               <div class="col-sm-9">
                 <h3 class="page-title">Courses </h3>
                 <a
-                  class="btn btn-sm  btn-outline-info "
+                  class="btn btn-sm   btn btn-primary "
                   data-toggle="modal"
                   href="#add"
                 >
@@ -183,7 +243,7 @@ const Delete = (idf) => {
                                 </td>
                               </tr>
                             ))
-                          : "Aucun Formation dans la base de donnes"}
+                          : "Aucune Formation dans la base de données"}
                       </tbody>
                     </table>
                   </div>
@@ -247,7 +307,7 @@ const Delete = (idf) => {
                           value={Type}
                           onChange={handleChange}
                           SelectProps={{
-                            native: true,
+                            native: true
                           }}
                         >
                           {types.map((option) => (
@@ -289,7 +349,32 @@ const Delete = (idf) => {
                           <div class="col-12 col-sm-6">
                             <div class="form-group">
                               <label>Salle</label>
-                              <input type="text" class="form-control" />
+                              <select
+                                class="form-control select"
+                                name="subcategory"
+                                value={idSalle}
+                                onChange={(event) => {
+                                  setsalle(event.target.value);
+                                }}
+                                SelectProps={{
+                                  native: true,
+                                }}
+                              >
+                                {salles[0] && salles[0].length > 0 ? (
+                                  salles[0].map((option) => (
+                                    <option
+                                      key={option.value}
+                                      value={option.value}
+                                    >
+                                      {option.label}
+                                    </option>
+                                  ))
+                                ) : (
+                                  <option>
+                                    Ajouter des salles{" "}
+                                  </option>
+                                )}
+                              </select>
                             </div>
                           </div>
                           <div class="col-12 col-sm-6">
@@ -314,11 +399,11 @@ const Delete = (idf) => {
                             <input
                               type="text"
                               class="form-control"
-                              defaultValue=" 0.00 DT"
+                              defaultValue="0.00 DT"
                               value={Prix}
-                                onChange={(e) => {
-                                  setPrix(e.target.value);
-                                }}
+                              onChange={(e) => {
+                                setPrix(e.target.value);
+                              }}
                             />
                           </div>
                         </div>
@@ -337,10 +422,34 @@ const Delete = (idf) => {
                       </div>
                       <div class="col-12">
                         <div class="form-group">
+                          <label>Formateur</label>
+                          <select
+                            class="form-control select"
+                            name="subcategory"
+                            value={Formateur}
+                            onChange={handleChangeFormateur}
+                            SelectProps={{
+                              native: true,
+                            }}
+                          >
+                            {formateurs[0].map((option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
                           <label>Description</label>
                           <input
                             type="text"
                             class="form-control"
+                            value={Description}
+                            onChange={(e) => {
+                              setDescription(e.target.value);
+                            }}
                             defaultValue=""
                           />
                         </div>

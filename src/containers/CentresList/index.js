@@ -3,14 +3,29 @@ import Layout from '../../components/layouts';
 
 import {FaStar} from 'react-icons/fa';
 import {useSelector, useDispatch} from 'react-redux';
-import {getcentreFormation} from '../../actions';
+import {getcentreFormation,getcenterbyNom} from '../../actions';
 
 const Centers = () => {
   const dispatch = useDispatch();
+  const [Nom_centre, setNom_centre] = useState();
+
   useEffect(() => {
     dispatch(getcentreFormation());
   }, []);
-  const F = useSelector((state) => state.centre_formation.centre_formation);
+
+  let allCentreFormations = null;
+
+  console.log(Nom_centre)
+  const searchAgain = () => {
+    if (Nom_centre == "") {
+      allCentreFormations = dispatch(getcentreFormation());
+    } else {
+      allCentreFormations = dispatch(getcenterbyNom(Nom_centre));
+    }
+  };
+  console.log(Nom_centre)
+
+  let F = useSelector((state) => state.centre_formation.centre_formation);
 
   return (
     <div>
@@ -31,6 +46,9 @@ const Centers = () => {
                       type="text"
                       placeholder="Search ..."
                       class="form-control"
+                      onKeyUp={searchAgain}
+                      value={Nom_centre}
+                      onChange={(e) => setNom_centre(e.target.value)}
                     />
                     <div class="input-group-append">
                       <button type="submit" class="btn btn-primary">
@@ -62,7 +80,7 @@ const Centers = () => {
                       data-aos="zoom-in"
                       data-aos-delay="100"
                     >
-                      {F.length > 0
+                {F.length > 0
                         ? F.map((centre_formation) => (
                             <div
                               class="col-md-4 align-items-stretch"

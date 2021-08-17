@@ -53,6 +53,25 @@ const centre_formationsReducers = (state = initialState, action) => {
         message: 'false',
       };
       break;
+      case centre_formationConstants.GET_BY_NOM_CENTER_REQUEST:
+      state = {
+        ...state,
+      };
+      break;
+    case centre_formationConstants.GET_BY_NOM_CENTER_SUCCESS:
+      state = {
+        ...state,
+        centre_formation: action.payload.centre
+      };
+      break;
+    case centre_formationConstants.GET_BY_NOM_CENTER_FAILURE:
+      state = {
+        ...state,
+        error: action.payload.error,
+        message: 'false',
+      };
+      break;
+
     default:
       console.log('default');
   }
