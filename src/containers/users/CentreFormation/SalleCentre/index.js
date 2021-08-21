@@ -157,7 +157,7 @@ function SalleCentre() {
           </div>
         </div>
       </div>
-
+            {/* ADD Modal */}
       <div class="modal fade" id="add" aria-hidden="true" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">

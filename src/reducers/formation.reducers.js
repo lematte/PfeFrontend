@@ -88,6 +88,41 @@ const FormationReducer = (state = initialState, action) => {
         loading: false,
       };
       break;
+      case formationConstants.GET_FORMATION_BY_ID_REQUEST:
+      state = {
+        ...state,
+      };
+      break;
+      case formationConstants.GET_FORMATION_BY_ID_SUCCESS:
+      state = {
+        ...state,
+        Formation: action.payload.formation,
+      };
+      break;
+    case formationConstants.GET_FORMATION_BY_ID_FAILURE:
+      state = {
+        ...state,
+        error: action.payload.error,
+      };
+      break;
+      case formationConstants.UPDATE_FORMATION_REQUEST:
+      state = {
+        ...state,
+      };
+      break;
+    case formationConstants.UPDATE_FORMATION_SUCCESS:
+      state = {
+        ...state,
+        message: 'true',
+      };
+      break;
+    case formationConstants.UPDATE_FORMATION_FAILURE:
+      state = {
+        ...state,
+        error: action.payload.error,
+        message: 'false',
+      };
+      break;
     default:
       console.log("default");
   }

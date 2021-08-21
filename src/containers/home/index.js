@@ -32,9 +32,9 @@ function Home() {
 
   const F = useSelector((state) => state.Formation.Formation);
   const m = useSelector((state) => state.Formation.message);
-  const rrf = useSelector((state) => state.Formation.RRF)
+  //const rrf = useSelector((state) => state.Formation.RRF)
 
-  console.log(rrf)
+ // console.log(rrf)
  /* const Select = () => {
     console.log(Nom_centre);
     dispatch(getcenterbyNom(Nom_centre));

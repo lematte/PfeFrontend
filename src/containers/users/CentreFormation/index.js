@@ -1,6 +1,6 @@
-import React from 'react';
-import CentreFormationHeader from '../../../components/Headers/CentreFormationHeader/index';
-import CentreFormationSidebar from '../../../components/Sidebar/CentreFormationSidebar/index';
+import React from "react";
+import CentreFormationHeader from "../../../components/Headers/CentreFormationHeader/index";
+import CentreFormationSidebar from "../../../components/Sidebar/CentreFormationSidebar/index";
 
 function CentreFormationDashboard() {
   return (
@@ -63,7 +63,7 @@ function CentreFormationDashboard() {
                             class="btn btn-primary waves-effect waves-light btn-sm"
                             href="profile.html"
                           >
-                            View Profile{' '}
+                            View Profile{" "}
                             <i class="mdi mdi-arrow-right ml-1"></i>
                           </a>
                         </div>
@@ -106,7 +106,7 @@ function CentreFormationDashboard() {
                       <div class="col-4">
                         <div class="mt-4">
                           <p class="mb-2 text-truncate">
-                            <i class="fas fa-circle text-primary mr-1"></i>{' '}
+                            <i class="fas fa-circle text-primary mr-1"></i>{" "}
                             Invoiced
                           </p>
                           <h5>$ 2,132</h5>
@@ -115,7 +115,7 @@ function CentreFormationDashboard() {
                       <div class="col-4">
                         <div class="mt-4">
                           <p class="mb-2 text-truncate">
-                            <i class="fas fa-circle text-success mr-1"></i>{' '}
+                            <i class="fas fa-circle text-success mr-1"></i>{" "}
                             Received
                           </p>
                           <h5>$ 1,763</h5>
@@ -124,7 +124,7 @@ function CentreFormationDashboard() {
                       <div class="col-4">
                         <div class="mt-4">
                           <p class="mb-2 text-truncate">
-                            <i class="fas fa-circle text-danger mr-1"></i>{' '}
+                            <i class="fas fa-circle text-danger mr-1"></i>{" "}
                             Pending
                           </p>
                           <h5>$ 973</h5>
@@ -407,7 +407,7 @@ function CentreFormationDashboard() {
               </div>
               {/*<!-- /Recent Orders -->*/}
             </div>
-            </div>
+          </div>
           <div class="row">
             <div class="col-md-12">
               {/*<!-- Recent Orders -->*/}
@@ -462,7 +462,7 @@ function CentreFormationDashboard() {
                             </h2>
                           </td>
                           <td>
-                            9 Nov 2019{' '}
+                            9 Nov 2019{" "}
                             <span class="text-primary d-block">
                               11.00 AM - 11.15 AM
                             </span>
@@ -515,7 +515,7 @@ function CentreFormationDashboard() {
                             </h2>
                           </td>
                           <td>
-                            5 Nov 2019{' '}
+                            5 Nov 2019{" "}
                             <span class="text-primary d-block">
                               11.00 AM - 11.35 AM
                             </span>
@@ -568,7 +568,7 @@ function CentreFormationDashboard() {
                             </h2>
                           </td>
                           <td>
-                            11 Nov 2019{' '}
+                            11 Nov 2019{" "}
                             <span class="text-primary d-block">
                               12.00 PM - 12.15 PM
                             </span>
@@ -674,7 +674,7 @@ function CentreFormationDashboard() {
                             </h2>
                           </td>
                           <td>
-                            15 Nov 2019{' '}
+                            15 Nov 2019{" "}
                             <span class="text-primary d-block">
                               1.00 PM - 1.15 PM
                             </span>
@@ -708,4 +708,4 @@ function CentreFormationDashboard() {
     </div>
   );
 }
-export default CentreFormationDashboard
+export default CentreFormationDashboard;

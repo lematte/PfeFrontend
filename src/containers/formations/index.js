@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getFormation, getFormationByName } from "../../actions/index";
 import Layout from "../../components/layouts";
 import AllFormations from "./AllFormation";
-import SearchFormations from "./SearchFormations";
+import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 function Formations() {
   const location = useLocation();
@@ -19,8 +19,17 @@ function Formations() {
     ser = location.state.search;
   }**/
   //if 
-  
+  const history = useHistory();
+
   const [Libelle, setLibelle] = useState(location.state.search);
+  const [detail, setdetail]= useState()
+
+  const Detail = () => {
+    console.log(detail);
+    history.push("/formation-details",{ details: detail });
+
+  };
+
   let allFormations = null;
   useEffect(() => {
     if (location.state.search && location.state.search != "") {
@@ -138,7 +147,8 @@ function Formations() {
                               style={{ marginRight: "5px" }}
                             >
                               <div class="blog-image">
-                                <a href="/formation-details">
+                                <a href="/formation-details"
+                               >
                                   <img
                                     class="img-fluid"
                                     src="assets/img/blog/blog-01.jpg"
@@ -176,7 +186,7 @@ function Formations() {
                             {/* /Blog Post */}
                           </div>
                         ))
-                      : "Aucun Formation dans la base de donnes"}
+                      : "Aucune Formation dans la base de données"}
                   </div>
                 </div>
               </div>

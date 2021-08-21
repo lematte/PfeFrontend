@@ -35,7 +35,7 @@ const centre_formationsReducers = (state = initialState, action) => {
           error: action.payload.error
         };
         break;
-        case centre_formationConstants.UPDATE_CENTER_REQUEST:
+      case centre_formationConstants.UPDATE_CENTER_REQUEST:
       state = {
         ...state,
       };

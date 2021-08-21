@@ -74,7 +74,7 @@ export const getCentreByIdUser = (id) => {
       });
   };
 };
-///getcentreVille/:Ville
+
 export const getcentreVille = (Ville) => {
   console.log(Ville);
   return async (dispatch) => {

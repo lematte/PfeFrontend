@@ -15,12 +15,13 @@ function CentreFormationHeader() {
     <div className="header">
       {/* Logo */}
       <div className="header-left">
-        <a href="index.html" className="logo">
-          <img src="assets/img/logo-white.png" alt="Logo" />
+        <a href="/centre_formations/dashboard" className="logo">
+          <img src="../assets/img/LogoMakr-3.png" alt="Logo" />
         </a>
-        <a href="index.html" className="logo logo-small">
+        <a href="/centre_formations/dashboard" className="logo logo-small">
           <img
-            src="assets/img/logo-small.png"
+            src="../assets/img/LogoMakr-3.png"
+            style={{ width: "70px", height: "54px" }}
             alt="Logo"
             width={30}
             height={30}

@@ -9,11 +9,10 @@ export const login = (user) => {
       type: authConstants.LOGIN_REQUEST,
     });
     const res = await axios
-      .post(`/login`, user)
+      .post(`/login`,{...user})
       .then((res) => {
         console.log(res)
         const {token, user} = res.data;
-       
 
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
@@ -35,7 +34,7 @@ export const login = (user) => {
         dispatch({
           type: authConstants.LOGIN_FAILURE,
           payload: {
-            error: err.response.data,
+            error: err.response.data
           },
         });
       });

@@ -9,6 +9,7 @@ import salleReducers from './salle.reducers'
 import contratsReducers from './contratFormation.reducers'
 import contratsFormateurReducers from './contratFormateur.reducers'
 import categories from './categorie.reducers'
+import evaluations from './evaluation.reducers'
 import { combineReducers } from 'redux'
 
 
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
     salles : salleReducers,
     contrats : contratsReducers,
     contratsFormateurs :contratsFormateurReducers,
-    categories : categories
+    categories : categories,
+    evaluations : evaluations
 
 })
 export default rootReducer;

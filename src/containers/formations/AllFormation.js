@@ -4,6 +4,7 @@ import { IconContext } from "react-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { getFormation, getFormationByName } from "../../actions/index";
 import Layout from "../../components/layouts";
+import { useHistory } from "react-router-dom";
 
 function AllFormations() {
   const [Libelle, setLibelle] = useState();
@@ -162,7 +163,7 @@ function AllFormations() {
                           {/* /Blog Post */}
                         </div>
                       ))
-                    : "Aucun Formation dans la base de donnes"}
+                    : "Aucune Formation dans la base de donnéess"}
                 </div>
               </div>
             </div>

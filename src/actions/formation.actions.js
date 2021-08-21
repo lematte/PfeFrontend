@@ -60,7 +60,7 @@ export const ADDFormation = (form) => {
     });
     const res = await axios.post(`/formations/add`, form);
     console.log(res.data);
-    localStorage.setItem('res.data', JSON.stringify(res.data));
+    localStorage.setItem("res.data", JSON.stringify(res.data));
 
     if (res.status === 200) {
       // succes
@@ -103,6 +103,29 @@ export const getByIdCentre = (id) => {
   };
 };
 
+export const getById = (id) => {
+  return async (dispatch) => {
+    dispatch({
+      type: formationConstants.GET_FORMATION_BY_ID_REQUEST,
+    });
+    const res = await axios.get(`/formations/`+id);
+    console.log(res.data);
+    if (res.status === 200) {
+      // succes
+      dispatch({
+        type: formationConstants.GET_FORMATION_BY_ID_SUCCESS,
+        payload: { formation: res.data },
+      });
+    } else {
+      // echec
+      dispatch({
+        type: formationConstants.GET_FORMATION_BY_ID_FAILURE,
+        payload: { error: res.data.error },
+      });
+    }
+  };
+};
+
 export const DeleteFormation = (id) => {
   return async (dispatch) => {
     dispatch({
@@ -123,6 +146,32 @@ export const DeleteFormation = (id) => {
         dispatch({
           type: DeleteformationConstants.DELETE_FORMATION_FAILURE,
           payload: { error: err.response.data },
+        });
+      });
+  };
+};
+
+
+export const updateFormation = (id, formation) => {
+  return async (dispatch) => {
+    dispatch({
+      type: formationConstants.UPDATE_FORMATION_REQUEST,
+    });
+    await axios
+      .put(`/formations/update/` + id, formation)
+      .then((res) => {
+        // succes
+        console.log(res.data);
+        dispatch({
+          type: formationConstants.UPDATE_FORMATION_SUCCESS,
+          payload: { formation: res.data },
+        });
+      })
+      .catch((err) => {
+        // echec
+        dispatch({
+          type: formationConstants.UPDATE_FORMATION_FAILURE,
+          payload: { error: err.data.error },
         });
       });
   };

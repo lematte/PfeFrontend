@@ -53,7 +53,6 @@ function Profile() {
     dispatch(updateCenter(AuthCenter._id, Centre));
     dispatch(getCentreByIdUser(AuthUser._id));
     //        window.location.reload()
-
   };
 
   //photo
@@ -147,8 +146,9 @@ function Profile() {
                         {error.message}
                       </div>
                     )}
-
-                    <form onSubmit={handleSubmit} style={{ width: "200px" }}>
+                  
+                   
+                <form onSubmit={handleSubmit} style={{ width: "200px" }}>
                       <div className="progress mb-3 w-100">
                         <div
                           className="progress-bar bg-info"
