@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -252,11 +255,11 @@ function Home() {
 						</div>
 
               {F.map((formation, i) => (
-                <div className="course-box"  key={i}>
-                  <div className="product">
-                    <div className="product-img">
+                <div class="course-box" key={i} >
+                  <div class="product">
+                    <div class="product-img">
                       <Link to="#">
-                        <img className="img-fluid" alt="rien" src=" " />
+                        <img class="img-fluid" alt="rien" src=" " />
                       </Link>
                     </div>
                     <div className="product-content">
@@ -283,6 +286,7 @@ function Home() {
                   </div>
                 </div>
               ))}
+
             </div>
           </div>
         </section>

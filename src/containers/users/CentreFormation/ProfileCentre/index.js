@@ -66,6 +66,7 @@ function Profile() {
     found: false,
     message: "",
   });
+  const Centre = useSelector((state) => state.centre_formation.centre);
   // Upload image
   const upload = ({ target: { files } }) => {
     let data = new FormData();
@@ -87,10 +88,15 @@ function Profile() {
         setProgressPercent(percent);
       },
     };
+    //console.log("upload photo");
     dispatch(UploadImage(AuthUser._id, formData, options));
+    //console.log("get user");
     dispatch(getCentreByIdUser(AuthUser._id));
-
-    console.log(info.Photo);
+    //setProgressPercent(0);
+    localStorage.setItem("Centre", JSON.stringify(Centre));
+    //localStorage.setItem('centre',)
+window.location.reload();
+    //console.log(info.Photo);
   };
 
   // const image = useSelector((state) => state.getUser.image);
@@ -164,6 +170,7 @@ function Profile() {
                       <div className="custom-file mb-3">
                         <input
                           type="file"
+                          accept="image/png, image/gif, image/jpeg"
                           className="custom-file-input"
                           id="inputGroupFile04"
                           aria-describedby="inputGroupFileAddon04"

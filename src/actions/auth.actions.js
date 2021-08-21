@@ -9,7 +9,7 @@ export const login = (user) => {
       type: authConstants.LOGIN_REQUEST,
     });
     const res = await axios
-      .post(`/login`,{...user})
+      .post(`/login`,user)
       .then((res) => {
         console.log(res)
         const {token, user} = res.data;
@@ -31,6 +31,7 @@ export const login = (user) => {
         });
       })
       .catch((err) => {
+        //console.log(err.response)
         dispatch({
           type: authConstants.LOGIN_FAILURE,
           payload: {

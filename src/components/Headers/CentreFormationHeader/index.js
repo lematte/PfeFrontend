@@ -220,7 +220,7 @@ function CentreFormationHeader() {
                   borderRadius: "50px",
                 }}
               />{" "}
-              {AuthCenter.Nom_centre}
+              {AuthCenter && AuthCenter.length >0 ?  AuthCenter.Nom_centre : " "}
               <span className="status online" />
             </span>
           </a>
